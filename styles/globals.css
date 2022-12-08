@@ -1,26 +1,194 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://use.typekit.net/udx3cgk.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  * {
+    @apply antialiased font-body;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@layer components {
+  a {
+    @apply text-brand hover:text-darkest hover:cursor-pointer font-bold;
+  }
+  p {
+    @apply text-darkest;
+  }
+}
+
+/***************************/
+/*       Core Layout       */
+/***************************/
+@layer components {
+  #site-wrapper {
+    @apply flex w-full flex-col relative bg-white;
+  }
+  #gradient-bg {
+    @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 fixed h-full w-full z-0;
+  }
+}
+
+/***********************************/
+/*       Landing Page Styles       */
+/***********************************/
+@layer components {
+  main.landing-page {
+    @apply flex h-auto items-start mt-[80px];
+  }
+  main.landing-page > section.hero {
+    @apply relative flex flex-col container gap-y-4 mx-auto h-[calc(100vh_-_5rem)] items-center justify-center text-center w-3/5;
+  }
+}
+
+/***********************************/
+/*       Aside Layout Styles       */
+/***********************************/
+@layer components {
+  main.aside-layout {
+    @apply flex min-h-screen items-start mt-[80px];
+  }
+  main.aside-layout > aside {
+    @apply h-[calc(100vh_-_80px)] fixed top-[80px] overflow-y-scroll w-84 py-8 px-6 ml-24 overflow-auto;
+  }
+  main.aside-layout > div.content {
+    @apply relative flex flex-col w-full h-full overflow-auto py-8 px-3 ml-108 mr-24 gap-y-5;
+  }
+}
+
+/*******************************/
+/*       Header / Footer       */
+/*******************************/
+@layer components {
+  header {
+    @apply flex w-full fixed top-0 left-0 z-20 backdrop-blur-sm;
+  }
+  header > .inner-container,
+  footer > .inner-container {
+    @apply container mx-auto flex items-center h-20 gap-x-8;
+  }
+  .logo-container {
+    @apply flex gap-x-2 items-center mr-8;
+  }
+  .logo-container > a {
+    @apply flex gap-x-2 items-center;
+  }
+  .logo-container p {
+    @apply font-extrabold text-2xl;
+  }
+  header nav {
+    @apply flex gap-x-8 h-10 items-center;
+  }
+  header .button-container {
+    @apply flex items-center gap-x-2 ml-auto;
+  }
+}
+
+/**************************/
+/*       Typography       */
+/**************************/
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-darkest dark:text-white font-extrabold
+    transition-all duration-150 font-body tracking-tight;
+  }
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-5xl;
+  }
+  h3 {
+    @apply text-2xl md:text-4xl;
+  }
+  h4 {
+    @apply text-xl md:text-3xl;
+  }
+  h5 {
+    @apply text-base md:text-2xl;
+  }
+  h6 {
+    @apply text-sm font-semibold md:text-lg;
+  }
+}
+
+@layer components {
+  .header-sm {
+    @apply uppercase text-sm font-bold tracking-wider;
+  }
+}
+
+/**************************/
+/*       Components       */
+/**************************/
+@layer components {
+  .box {
+    @apply flex flex-col bg-white/90 rounded-2xl p-5 shadow-lg shadow-dark/5 gap-y-3;
+  }
+}
+
+@layer components {
+  .scrollable-container {
+    @apply relative flex justify-start overflow-x-scroll pb-10 hide-scroll-bar;
+  }
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/******************************/
+/*       Theme Swatch       */
+/******************************/
+@layer components {
+  .swatch-container {
+    @apply flex overflow-hidden rounded-xl border border-light;
+  }
+  .swatch-container > label {
+    @apply flex;
+  }
+  .swatch-container > label > div,
+  .swatch-container > div {
+    @apply w-1/6 h-10;
+  }
+}
+
+/***********************/
+/*       Buttons       */
+/***********************/
+@layer components {
+  /* Button Sizes */
+  .btn-lg {
+    @apply flex w-auto py-4 px-6 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-base;
+  }
+  .btn-md {
+    @apply flex w-auto h-12 px-5 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-base;
+  }
+  .btn-sm {
+    @apply flex w-auto py-2 px-4 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-sm;
+  }
+  .btn-xs {
+    @apply flex w-auto py-1.5 px-2.5 rounded-full items-center justify-center text-center font-bold transition-all duration-150 ease-in-out text-xs uppercase tracking-wide;
+  }
+  /* Button Styles */
+  .btn-brand {
+    @apply bg-brand hover:bg-darkest text-lightest hover:text-lightest  dark:bg-brand dark:hover:bg-lightest dark:text-lightest dark:hover:text-darkest
+    shadow-lg shadow-dark/5;
+  }
+  .btn-white {
+    @apply bg-white hover:bg-darkest text-darkest hover:text-lightest shadow-lg shadow-dark/5;
+  }
+  .btn-outline {
+    @apply border-2 border-darkest/30 hover:border-darkest dark:border-lightest/30 dark:hover:border-white text-darkest dark:text-lightest;
   }
 }
