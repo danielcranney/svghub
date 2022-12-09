@@ -14,38 +14,53 @@
     @apply text-brand hover:text-darkest hover:cursor-pointer font-bold;
   }
   p {
-    @apply text-darkest;
+    @apply text-darkest dark:text-lightest;
   }
 }
 
-/***************************/
-/*       Core Layout       */
-/***************************/
+/************************************/
+/*       Core Layout & Styles       */
+/************************************/
 @layer components {
   #site-wrapper {
-    @apply flex w-full flex-col relative bg-white;
+    @apply flex w-full flex-col relative bg-white dark:bg-darkest;
   }
   #gradient-bg {
     @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 fixed h-full w-full z-0;
+  }
+  .inner-container {
+    @apply container mx-auto;
   }
 }
 
 /***********************************/
 /*       Landing Page Styles       */
 /***********************************/
-@layer components {
-  main.landing-page {
+@layer utilities {
+  main#landing-page {
     @apply flex h-auto items-start mt-[80px];
   }
-  main.landing-page > section.hero {
-    @apply relative flex flex-col container gap-y-4 mx-auto h-[calc(100vh_-_5rem)] items-center justify-center text-center w-3/5;
+  main#landing-page > section.hero {
+    @apply relative flex flex-col container gap-y-4 mx-auto h-[calc(100vh_-_5rem)] items-center justify-center text-center w-4/5;
+  }
+}
+
+/***********************************/
+/*       Artists Page Styles       */
+/***********************************/
+@layer utilities {
+  main#artists-page {
+    @apply flex min-h-screen items-start mt-[80px] py-8 z-10;
+  }
+  main#artists-page > .inner-container {
+    @apply px-8 items-center text-center;
   }
 }
 
 /***********************************/
 /*       Aside Layout Styles       */
 /***********************************/
-@layer components {
+@layer utilities {
   main.aside-layout {
     @apply flex min-h-screen items-start mt-[80px];
   }
@@ -60,7 +75,7 @@
 /*******************************/
 /*       Header / Footer       */
 /*******************************/
-@layer components {
+@layer utilities {
   header {
     @apply flex w-full fixed top-0 left-0 z-20 backdrop-blur-sm;
   }
@@ -75,7 +90,7 @@
     @apply flex gap-x-2 items-center;
   }
   .logo-container p {
-    @apply font-extrabold text-2xl;
+    @apply font-extrabold text-2xl tracking-tighter;
   }
   header nav {
     @apply flex gap-x-8 h-10 items-center;
@@ -118,7 +133,7 @@
   }
 }
 
-@layer components {
+@layer utilities {
   .header-sm {
     @apply uppercase text-sm font-bold tracking-wider;
   }
@@ -129,11 +144,14 @@
 /**************************/
 @layer components {
   .box {
-    @apply flex flex-col bg-white/90 rounded-2xl p-5 shadow-lg shadow-dark/5 gap-y-3;
+    @apply flex flex-col bg-white/90 rounded-2xl p-5 shadow-lg shadow-dark/5 gap-y-3 overflow-hidden;
+  }
+  input {
+    @apply h-12 rounded-lg bg-white px-2.5;
   }
 }
 
-@layer components {
+@layer utilities {
   .scrollable-container {
     @apply relative flex justify-start overflow-x-scroll pb-10 hide-scroll-bar;
   }
@@ -150,7 +168,7 @@
 /******************************/
 /*       Theme Swatch       */
 /******************************/
-@layer components {
+@layer utilities {
   .swatch-container {
     @apply flex overflow-hidden rounded-xl border border-light;
   }

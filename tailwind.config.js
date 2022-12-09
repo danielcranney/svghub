@@ -3,7 +3,15 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
+    container: {
+      padding: {
+        DEFAULT: "2rem",
+        sm: "2rem",
+        md: "3rem",
+      },
+    },
     extend: {
       colors: {
         transparent: "transparent",

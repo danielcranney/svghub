@@ -137,7 +137,7 @@ export default function Illustrations() {
                 <p className="font-bold">Sat on Car</p>
               </div>
               <div className="flex items-center gap-x-2 brd">
-                <div className="w-10 h-10 block overflow-hidden rounded-full">
+                <div className="w-8 h-8 block overflow-hidden rounded-full">
                   <Image
                     src={
                       "https://images.unsplash.com/photo-1542178243-bc20204b769f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
@@ -149,8 +149,9 @@ export default function Illustrations() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-sm">Dan Cranney</p>
-                  <a className="text-sm">@idonthaveaname</a>
+                  <p className="text-sm">
+                    by <a className="text-sm">@idonthaveaname</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -163,7 +164,7 @@ export default function Illustrations() {
                 <p className="font-bold">Woman in Nature</p>
               </div>
               <div className="flex items-center gap-x-2">
-                <div className="w-10 h-10 block overflow-hidden rounded-full">
+                <div className="w-6 h-6 block overflow-hidden rounded-full">
                   <Image
                     src={
                       "https://images.unsplash.com/photo-1542178243-bc20204b769f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
@@ -189,7 +190,7 @@ export default function Illustrations() {
                 <p className="font-bold">Drinking</p>
               </div>
               <div className="flex items-center gap-x-2">
-                <div className="w-10 h-10 block overflow-hidden rounded-full">
+                <div className="w-6 h-6 block overflow-hidden rounded-full">
                   <Image
                     src={
                       "https://images.unsplash.com/photo-1542178243-bc20204b769f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
@@ -213,7 +214,7 @@ export default function Illustrations() {
             <div className="flex">
               {/* Title */}
               <div className="flex flex-col mb-4">
-                <p className="text-sm uppercase font-bold tracking-wider text-mid">
+                <p className="header-sm">
                   Collection
                 </p>
                 <h3>Anime</h3>
@@ -303,46 +304,12 @@ export default function Illustrations() {
                 </div>
               </div>
             </div>
-
-            {/* <article className="flex w-full h-32 overflow-hidden bg-red-500">
-              <article className="absolute flex gap-4">
-                <div className="box w-108 justify-center">
-                  <div className="flex items-center w-full h-32">
-                    <Undraw1 state={state} />
-                  </div>
-                </div>
-
-                <div className="box w-108 justify-center">
-                  <div className="flex items-center w-full h-32">
-                    <Undraw2 state={state} />
-                  </div>
-                </div>
-
-                <div className="box w-108 justify-center">
-                  <div className="flex items-center w-full h-32">
-                    <Undraw3 state={state} />
-                  </div>
-                </div>
-
-                <div className="box w-108 justify-center">
-                  <div className="flex items-center w-full h-32">
-                    <Undraw2 state={state} />
-                  </div>
-                </div>
-
-                <div className="box justify-center">
-                  <div className="flex items-center w-full h-32">
-                    <Undraw1 state={state} />
-                  </div>
-                </div>
-              </article>
-            </article> */}
           </div>
 
           {/* Nature */}
           <div className="flex flex-col mt-8">
             <div className="flex flex-col mb-4">
-              <p className="text-sm uppercase font-bold tracking-wider text-mid">
+              <p className="header-sm">
                 Collection
               </p>
               <h3>Nature</h3>
@@ -351,7 +318,7 @@ export default function Illustrations() {
                 tribute to the world around us.
               </p>
             </div>
-            <article className="grid grid-cols-5 gap-4">
+            <article className="grid grid-cols-5 gap-5">
               <div className="box justify-center">
                 <div className="flex items-center w-full h-32">
                   <Undraw1 state={state} />

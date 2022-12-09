@@ -10,6 +10,7 @@ import { ThemeSwatch } from "../components/ThemeSwatch";
 import { CurrentThemeSwatch } from "../components/CurrentThemeSwatch";
 import { LandingLayout } from "../components/layouts/LandingLayout";
 import { SiteLogo } from "../components/site-logo/SiteLogo";
+import { Footer } from "../components/structure/Footer";
 
 const data = [
   {
@@ -83,7 +84,7 @@ export default function Home() {
 
       <Header />
 
-      <main className="landing-page">
+      <main id="landing-page">
         <section className="hero">
           <h1>Find unique artwork that brings your project to life</h1>
           <p className="text-xl">
@@ -129,11 +130,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="w-full flex py-8 items-center bg-brand/10">
-        <div className="inner-container">
-          <SiteLogo />
-        </div>
-      </footer>
+     <Footer />
     </div>
   );
 }
