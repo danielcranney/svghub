@@ -31,7 +31,7 @@ const artists = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur voluptatibus officiis placeat.",
     profilePic: "/artists/daniel-sulzberg.png",
-    portfolioLink: "http://www.snehakadaba.com",
+    portfolioLink: "http://www.danielsulzberg.com",
     twitterLink: "https://twitter.com/Danvillageart",
     behanceLink: "",
     instagramLink: "",
@@ -42,7 +42,7 @@ const artists = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur voluptatibus officiis placeat.",
     profilePic: "/artists/kamo-frank.png",
-    portfolioLink: "http://www.snehakadaba.com",
+    portfolioLink: "http://www.kamofrank.com",
     twitterLink: "https://twitter.com/Danvillageart",
     behanceLink: "",
     instagramLink: "",
@@ -53,7 +53,7 @@ const artists = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur voluptatibus officiis placeat.",
     profilePic: "/artists/alissa-thaler.png",
-    portfolioLink: "http://www.snehakadaba.com",
+    portfolioLink: "http://www.alissathaler.com",
     twitterLink: "https://twitter.com/Danvillageart",
     behanceLink: "",
     instagramLink: "",

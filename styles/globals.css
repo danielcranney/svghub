@@ -26,7 +26,7 @@
     @apply flex w-full flex-col relative bg-white dark:bg-darkest;
   }
   #gradient-bg {
-    @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 fixed h-full w-full z-0;
+    @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 dark:from-darkest dark:to-brand/40 fixed h-full w-full z-0;
   }
   .inner-container {
     @apply container mx-auto;
@@ -94,6 +94,9 @@
   }
   header nav {
     @apply flex gap-x-8 h-10 items-center;
+  }
+  header nav a {
+    @apply dark:hover:text-lightest
   }
   header .button-container {
     @apply flex items-center gap-x-2 ml-auto;
@@ -190,13 +193,13 @@
     @apply flex w-auto py-4 px-6 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-base;
   }
   .btn-md {
-    @apply flex w-auto h-12 px-5 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-base;
+    @apply flex w-auto h-12 px-5 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-base hover:-translate-y-0.5;
   }
   .btn-sm {
-    @apply flex w-auto py-2 px-4 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-sm;
+    @apply flex w-auto py-2 px-4 items-center justify-center rounded-full text-center font-bold transition-all duration-150 ease-in-out text-sm hover:-translate-y-0.5;
   }
   .btn-xs {
-    @apply flex w-auto py-1.5 px-2.5 rounded-full items-center justify-center text-center font-bold transition-all duration-150 ease-in-out text-xs uppercase tracking-wide;
+    @apply flex w-auto py-1.5 px-2.5 rounded-full items-center justify-center text-center font-bold transition-all duration-150 ease-in-out text-xs uppercase tracking-wide hover:-translate-y-0.5;
   }
   /* Button Styles */
   .btn-brand {

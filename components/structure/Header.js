@@ -15,7 +15,7 @@ export const Header = () => {
     if (currentTheme === "dark") {
       return (
         <svg
-          className="w-6 h-6 transition-all duration-150 ease-in-out"
+          className="w-6 h-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -31,7 +31,7 @@ export const Header = () => {
     } else {
       return (
         <svg
-          className="w-6 h-6 transition-all duration-150 ease-in-out"
+          className="w-6 h-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
