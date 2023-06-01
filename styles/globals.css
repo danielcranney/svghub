@@ -11,10 +11,10 @@
 
 @layer components {
   a {
-    @apply text-brand hover:text-darkest hover:cursor-pointer font-bold;
+    @apply text-brand hover:text-dark hover:cursor-pointer font-bold;
   }
   p {
-    @apply text-darkest dark:text-lightest;
+    @apply text-dark dark:text-lightest;
   }
 }
 
@@ -26,7 +26,7 @@
     @apply flex w-full flex-col relative bg-white dark:bg-darkest;
   }
   #gradient-bg {
-    @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 dark:from-darkest dark:to-brand/40 fixed h-full w-full z-0;
+    @apply bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 dark:from-dark dark:to-brand/40 fixed h-full w-full z-0;
   }
   .inner-container {
     @apply container mx-auto;
@@ -98,7 +98,7 @@
   h4,
   h5,
   h6 {
-    @apply text-darkest dark:text-white font-extrabold
+    @apply text-dark dark:text-white font-extrabold
     transition-all duration-150 font-body tracking-tight;
   }
   h1 {
@@ -191,14 +191,14 @@
   }
   /* Button Styles */
   .btn-brand {
-    @apply bg-brand hover:bg-darkest text-lightest hover:text-lightest  dark:bg-brand dark:hover:bg-lightest dark:text-lightest dark:hover:text-darkest
+    @apply bg-brand hover:bg-dark text-lightest hover:text-lightest  dark:bg-brand dark:hover:bg-lightest dark:text-lightest dark:hover:text-darkest
     shadow-lg shadow-dark/5;
   }
   .btn-white {
-    @apply bg-white hover:bg-darkest text-darkest hover:text-lightest shadow-lg shadow-dark/5;
+    @apply bg-white hover:bg-dark text-dark hover:text-lightest shadow-lg shadow-dark/5;
   }
   .btn-outline {
-    @apply border-2 border-darkest/30 hover:border-darkest dark:border-lightest/30 dark:hover:border-white text-darkest dark:text-lightest;
+    @apply border-2 border-darkest/30 hover:border-dark dark:border-lightest/30 dark:hover:border-white text-dark dark:text-lightest;
   }
 }
 

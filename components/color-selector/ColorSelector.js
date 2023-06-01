@@ -109,7 +109,7 @@ const ColorSelector = forwardRef((props, ref) => {
       className="flex flex-col w-full relative z-50 bg-white rounded-lg"
       ref={ref}
     >
-      <div className="flex mx-4 text-xs border border-light/30 dark:border-neutral-700 rounded-md overflow-hidden gap-x-px bg-light/30 dark:bg-neutral-700">
+      {/* <div className="flex mx-4 text-xs border border-light/30 dark:border-neutral-700 rounded-md overflow-hidden gap-x-px bg-light/30 dark:bg-neutral-700">
         <button
           className={`flex flex-1 justify-center pt-1.5 pb-1 px-1.5 uppercase font-medium tracking-wide border-b-2 ${
             showSelector === "hexColorPicker"
@@ -130,25 +130,46 @@ const ColorSelector = forwardRef((props, ref) => {
         >
           Tailwind
         </button>
-      </div>
+      </div> */}
       {showSelector === "hexColorPicker" ? (
-        <div className="relative flex w-full pt-4 overflow-auto mb-4">
+        <div className="relative flex w-full overflow-auto mb-4">
           <div className="flex flex-col items-stretch w-full gap-2">
             <HexColorPicker color={testColor} onChange={setTestColor} />
-            <input
-              maxLength="7"
-              value={inputColor}
-              className="py-2 px-3 text-sm text-mid uppercase font-bold text-center focus:outline-none focus:border-mid border border-light"
-              onChange={(e) => {
-                // console.log("E.target.value is ", e.target.value);
-                setInputColor(e.target.value);
-                setTestColor(
-                  e.target.value.match(regex) ? e.target.value : testColor
-                );
-              }}
-            />
+            <div className="flex items-center gap-x-1.5 w-full">
+              <input
+                maxLength="7"
+                value={inputColor}
+                className="relative bg-light/50 border border-light rounded-md text-xs focus:outline-none focus:border-mid/50 flex items-center text-center h-8 text-mid font-medium tracking-wide w-40 uppercase"
+                onChange={(e) => {
+                  // console.log("E.target.value is ", e.target.value);
+                  setInputColor(e.target.value);
+                  setTestColor(
+                    e.target.value.match(regex) ? e.target.value : testColor
+                  );
+                }}
+              />{" "}
+              <button
+                className="flex w-8 h-8 dark:bg-neutral-700/10 dark:hover:bg-neutral-700/40 bg-mid/20 text-dark rounded-lg items-center justify-center group gap-x-1.5"
+                onClick={() => copyToClipBoard(state[colorCategory].hex, "hex")}
+              >
+                <svg
+                  className="w-5 h-5 shrink-0 flex"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                  ></path>
+                </svg>
+              </button>
+            </div>
 
-            <div className="flex gap-x-1 w-full overflow-hidden rounded-md">
+            {/* <div className="flex gap-x-1 w-full overflow-hidden rounded-md">
               <button
                 className="dark:bg-neutral-700/10 dark:hover:bg-neutral-700/40 bg-light/10 hover:bg-light/10 btn-xs btn-transparent flex w-full p-2 items-center group gap-x-1.5"
                 onClick={() => copyToClipBoard(state[colorCategory].hex, "hex")}
@@ -170,7 +191,7 @@ const ColorSelector = forwardRef((props, ref) => {
                 <div className="flex flex-col items-start grow">
                   <p className="text-xs uppercase">Hex:</p>
                   <p className="text-xs font-medium uppercase">
-                    {copying == "hex" ? "Copying..." : state[colorCategory].hex}
+                    {copying == "hex" ? "Copying..." : state[colorCategory]}
                   </p>
                 </div>
               </button>
@@ -201,7 +222,7 @@ const ColorSelector = forwardRef((props, ref) => {
                   </p>
                 </div>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       ) : (

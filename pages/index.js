@@ -372,7 +372,7 @@ export default function Home() {
         <section id="landing-page">
           <section className="hero">
             <h1>Spice up your designs with simple SVGs</h1>
-            <p className="text-xl">
+            <p className="text-xl text-dark/70">
               Our library has over 60 custom color SVG ornaments, scribbles and
               shapes.
             </p>
@@ -434,7 +434,7 @@ export default function Home() {
               {/* <div className="absolute top-0 w-full h-12 backdrop-blur-sm"></div> */}
               <article className="flex flex-row items-center gap-3 justify-start grow">
                 <p className="flex font-semibold text-dark opacity-80 uppercase tracking-wider text-xs">
-                  Search SVGs
+                  Search
                 </p>
                 <div className="flex flex-col h-10 overflow-hidden w-44">
                   <input
@@ -680,7 +680,7 @@ export default function Home() {
             </div>
           </aside>
 
-          <div className="content w-[calc(88%)] mt-6 mx-auto">
+          <div className="content w-[calc(88%)] mt-2 mx-auto">
             <div className="flex flex-col mt-8">
               {/* Scollbar */}
               <div className="grid grid-cols-5 gap-4">{SvgContainer()}</div>
