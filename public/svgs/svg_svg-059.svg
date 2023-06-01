@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <path d="m150,30L30,150l120,120,120-120L150,30Zm-100,120l100-100,100,100-100,100-100-100Z" fill={state.brand}/>
+  <polygon points="150 50 150 250 50 150 150 50" fill={state.brand}/>
+  <polygon points="150 50 150 250 50 150 150 50" fill={state.brand}/>
+</svg>

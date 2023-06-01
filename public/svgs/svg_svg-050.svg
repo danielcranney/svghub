@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect x="34.15" y="41.6" width="231.7" height="213.67" fill={state.darkest}/>
+  <polyline points="265.85 41.6 34.15 41.6 34.15 136.43" style="fill: #03081b;"/>
+  <polygon points="0 230.85 61.97 199.47 118.77 230.17 233.8 103.02 300 150 300 300 0 300 0 230.85" fill={state.brand}/>
+  <g style="opacity: .15;">
+    <polygon points="233.8 103.02 300 300 300 150 233.8 103.02" style="fill: #fff;"/>
+  </g>
+  <g style="opacity: .15;">
+    <polygon points="61.97 199.47 0 300 0 230.85 61.97 199.47" style="fill: #fff;"/>
+  </g>
+</svg>

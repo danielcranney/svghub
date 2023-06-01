@@ -21,7 +21,7 @@ export const ThemeSwatch = ({
           handlePaletteSwitch(brand, darkest, dark, mid, light, lightest);
         }}
       />
-      <label for="palette" className="w-full h-10">
+      <label labelFor="palette" className="w-full h-10">
         <div
           style={{
             background: brand,

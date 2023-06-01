@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <path d="m258.31,0v136.09c-5.25-55.2-51.73-98.38-108.31-98.38V0h108.31Z" fill={state.darkest}/>
+  <path d="m258.31,156.96v143.04h-108.31v-44.67c56.58,0,103.06-43.17,108.31-98.37Z" fill={state.mid}/>
+  <path d="m150,37.71v217.62c-60.09,0-108.81-48.71-108.81-108.81s48.72-108.81,108.81-108.81Z" fill={state.brand}/>
+</svg>

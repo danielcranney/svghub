@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <path d="m175.16,20.87v151.79H23.38V20.87h151.79m4-4H19.38v159.79h159.79V16.87h0Z" fill={state.brand}/>
+  <path d="m229.8,119.5v111.35h-111.35v-111.35h111.35m4-4h-119.35v119.35h119.35v-119.35h0Z" fill={state.brand}/>
+  <path d="m275.79,188.18v83.99h-83.99v-83.99h83.99m4-4h-91.99v91.99h91.99v-91.99h0Z" fill={state.brand}/>
+  <rect x="118.36" y="115.84" width="60.63" height="60.63" fill={state.brand}/>
+  <rect x="190.16" y="184.43" width="40.8" height="46.65" fill={state.brand}/>
+</svg>

@@ -120,14 +120,6 @@ export default function Illustrations() {
         </aside>
 
         <div className="content">
-          {/* Newest Additions */}
-          <div className="flex flex-col mb-4">
-            <h3>New Illustrations</h3>
-            <p>
-              We&apos;re adding new illustrations all the time. Check out
-              what&apos;s new in-store.
-            </p>
-          </div>
           <article className="grid grid-cols-3 gap-5">
             <div className="box justify-center">
               <div className="flex items-center w-full h-52">
@@ -214,9 +206,7 @@ export default function Illustrations() {
             <div className="flex">
               {/* Title */}
               <div className="flex flex-col mb-4">
-                <p className="header-sm">
-                  Collection
-                </p>
+                <p className="header-sm">Collection</p>
                 <h3>Anime</h3>
                 <p>
                   Add some anime to your project with <a>@idonthaveaname</a>
@@ -309,9 +299,7 @@ export default function Illustrations() {
           {/* Nature */}
           <div className="flex flex-col mt-8">
             <div className="flex flex-col mb-4">
-              <p className="header-sm">
-                Collection
-              </p>
+              <p className="header-sm">Collection</p>
               <h3>Nature</h3>
               <p>
                 This incredible collection by <a>@idonthaveaname</a> pays

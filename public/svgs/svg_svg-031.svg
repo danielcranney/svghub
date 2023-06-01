@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect x="23.19" y="162" width="184.87" height="35.36" rx="17.68" ry="17.68" fill={state.brand}/>
+  <rect x="224.97" y="162" width="50.15" height="35.36" rx="17.68" ry="17.68" style="fill: #03081b;"/>
+  <rect x="23.19" y="102.64" width="125.97" height="35.36" rx="17.68" ry="17.68" fill={state.darkest}/>
+  <rect x="23.19" y="221.36" width="87.87" height="35.36" rx="17.68" ry="17.68" style="fill: #03081b;"/>
+  <rect x="127.98" y="221.36" width="147.15" height="35.36" rx="17.68" ry="17.68" style="fill: #e8e2d8;"/>
+  <rect x="166.07" y="102.64" width="109.06" height="35.36" rx="17.68" ry="17.68" fill={state.mid}/>
+  <rect x="23.19" y="43.27" width="81.74" height="35.36" rx="17.68" ry="17.68" style="fill: #03081b;"/>
+  <rect x="122.98" y="43.27" width="153.83" height="35.36" rx="17.68" ry="17.68" style="fill: #e8e2d8;"/>
+</svg>

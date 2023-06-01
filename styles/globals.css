@@ -37,11 +37,11 @@
 /*       Landing Page Styles       */
 /***********************************/
 @layer utilities {
-  main#landing-page {
+  #landing-page {
     @apply flex h-auto items-start mt-[80px];
   }
-  main#landing-page > section.hero {
-    @apply relative flex flex-col container gap-y-4 mx-auto h-[calc(100vh_-_5rem)] items-center justify-center text-center w-4/5;
+  #landing-page > section.hero {
+    @apply relative flex flex-col container gap-y-4 mx-auto h-[calc(100vh_-_13rem)] items-center justify-center text-center w-4/5;
   }
 }
 
@@ -57,27 +57,12 @@
   }
 }
 
-/***********************************/
-/*       Aside Layout Styles       */
-/***********************************/
-@layer utilities {
-  main.aside-layout {
-    @apply flex min-h-screen items-start mt-[80px];
-  }
-  main.aside-layout > aside {
-    @apply h-[calc(100vh_-_80px)] fixed top-[80px] overflow-y-scroll w-84 py-8 px-6 ml-24 overflow-auto;
-  }
-  main.aside-layout > div.content {
-    @apply relative flex flex-col w-full h-full overflow-auto py-8 px-3 ml-108 mr-24 gap-y-5;
-  }
-}
-
 /*******************************/
 /*       Header / Footer       */
 /*******************************/
 @layer utilities {
   header {
-    @apply flex w-full fixed top-0 left-0 z-20 backdrop-blur-sm;
+    @apply flex w-full relative left-0 z-30 backdrop-blur-sm;
   }
   header > .inner-container,
   footer > .inner-container {
@@ -96,7 +81,7 @@
     @apply flex gap-x-8 h-10 items-center;
   }
   header nav a {
-    @apply dark:hover:text-lightest
+    @apply dark:hover:text-lightest;
   }
   header .button-container {
     @apply flex items-center gap-x-2 ml-auto;
@@ -147,7 +132,10 @@
 /**************************/
 @layer components {
   .box {
-    @apply flex flex-col bg-white/90 rounded-2xl p-5 shadow-lg shadow-dark/5 gap-y-3 overflow-hidden;
+    @apply flex flex-col rounded-2xl p-5 shadow-lg shadow-dark/5 gap-y-3;
+  }
+  .grid-box {
+    @apply grid rounded-2xl p-5 shadow-lg shadow-dark/5 overflow-hidden;
   }
   input {
     @apply h-12 rounded-lg bg-white px-2.5;
@@ -211,5 +199,11 @@
   }
   .btn-outline {
     @apply border-2 border-darkest/30 hover:border-darkest dark:border-lightest/30 dark:hover:border-white text-darkest dark:text-lightest;
+  }
+}
+
+@layer components {
+  .svg-item-box {
+    @apply overflow-hidden rounded-lg bg-white hover:shadow-xl shadow-dark/10 transition-shadow duration-300 ease-in-out;
   }
 }

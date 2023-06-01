@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect x="19.38" y="16.87" width="159.79" height="159.79" fill={state.brand}/>
+  <rect x="114.44" y="115.5" width="119.35" height="119.35" fill={state.mid}/>
+  <rect x="187.8" y="184.18" width="91.99" height="91.99" fill={state.darkest}/>
+</svg>

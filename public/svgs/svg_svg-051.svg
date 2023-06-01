@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <circle cx="99.27" cy="190.88" r="71.71" fill={state.brand}/>
+  <polygon points="0 230.85 61.97 199.47 118.77 230.17 233.8 103.02 300 150 300 300 0 300 0 230.85" fill={state.darkest}/>
+  <g style="opacity: .06;">
+    <polygon points="233.8 103.02 300 300 300 150 233.8 103.02" style="fill: #fff;"/>
+  </g>
+  <g style="opacity: .1;">
+    <polygon points="61.97 199.47 0 300 0 230.85 61.97 199.47" style="fill: #fff;"/>
+  </g>
+</svg>

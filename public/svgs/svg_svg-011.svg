@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <polyline points="25.36 226.56 25.36 20.92 222.12 20.92" style="fill: #e8e2d8;"/>
+  <polyline points="77.88 279.08 77.88 73.44 274.64 73.44" fill={state.brand}/>
+</svg>

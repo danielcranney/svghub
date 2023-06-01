@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clippath">
+      <path d="m260,150c0,60.75-49.25,110-110,110V40c60.75,0,110,49.25,110,110Z" style="fill: #fff;"/>
+    </clipPath>
+  </defs>
+  <circle cx="150" cy="150" r="125" fill={state.brand}/>
+  <g>
+    <path d="m260,150c0,60.75-49.25,110-110,110V40c60.75,0,110,49.25,110,110Z" style="fill: #fff;"/>
+    <g style="clip-path: url(#clippath);">
+      <rect x="94.15" y="52.03" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="82.1" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="112.11" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="142.22" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="172.26" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="202.36" width="172.36" height="15" fill={state.brand}/>
+      <rect x="94.19" y="232.41" width="172.36" height="15" fill={state.brand}/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <path d="m19.38,16.87v159.79h159.78V16.87H19.38Zm155.78,155.79H23.38V20.87h151.78v151.79Z" fill={state.brand}/>
+  <path d="m114.44,115.49v119.36h119.36v-119.36h-119.36Zm115.36,115.36h-111.36v-111.36h111.36v111.36Z" fill={state.brand}/>
+  <rect x="118.44" y="119.49" width="56.72" height="53.17" fill={state.brand}/>
+  <path d="m187.8,184.17v91.99h91.99v-91.99h-91.99Zm87.99,87.99h-83.99v-83.99h83.99v83.99Z" fill={state.brand}/>
+  <polygon points="275.79 188.17 275.79 272.16 191.8 272.16 191.8 234.85 233.8 234.85 233.8 188.17 275.79 188.17" fill={state.brand}/>
+</svg>

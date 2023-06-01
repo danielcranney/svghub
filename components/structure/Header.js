@@ -60,9 +60,9 @@ export const Header = () => {
 
         <nav>
           <Link href="/">Home</Link>
-          <Link href="/illustrations">Illustrations</Link>
-          <Link href="/icons">Icons</Link>
-          <Link href="/artists">Artists</Link>
+          <Link href="/illustrations">Browse</Link>
+          {/* <Link href="/icons">Icons</Link>
+          <Link href="/artists">Artists</Link> */}
         </nav>
 
         <div className="button-container">
