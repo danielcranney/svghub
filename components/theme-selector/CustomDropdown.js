@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useTheme } from "next-themes";
 
 const CustomDropdown = ({ options, state, setState }) => {
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -24,18 +27,38 @@ const CustomDropdown = ({ options, state, setState }) => {
     });
   };
 
+  function hexToRgb(hex) {
+    const bigint = parseInt(hex.substring(1), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `${r}, ${g}, ${b}`;
+  }
+
   return (
-    <div className="custom-dropdown relative bg-light/50 border border-light rounded-md text-sm focus:outline-none focus:border-mid/50 flex items-center w-60 h-10 text-mid cursor-pointer">
+    <div
+      style={{
+        background:
+          theme == "light"
+            ? `rgba(${hexToRgb(state.light)}, 0.50)`
+            : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+        borderColor:
+          theme == "light"
+            ? `rgba(${hexToRgb(state.light)}, 1)`
+            : `rgba(${hexToRgb(state.light)}, 0.15)`,
+      }}
+      className="custom-dropdown relative border rounded-md text-sm focus:outline-none focus:border-mid/50 flex items-center grow h-10 cursor-pointer"
+    >
       {/* {JSON.stringify(options)} */}
       <button
         className="dropdown-header relative w-full h-full flex items-center rounded-lg"
         onClick={toggleDropdown}
       >
         {selectedOption ? (
-          <div className="dropdown-option px-2.5 py-2 flex items-start border-b border-light last:border-0 gap-y-0.5 w-full">
-            <span className="text-xs uppercase font-medium flex flex-nowrap">
-              {selectedOption.label.substring(0, 11)}
-              {selectedOption.label.length > 11 ? "..." : ""}
+          <div className="dropdown-option px-2.5 py-2 flex items-start border-b-0 border-light last:border-0 gap-y-0.5 w-full">
+            <span className="text-sm font-medium flex whitespace-nowrap grow text-dark dark:text-light">
+              {selectedOption.label.substring(0, 30)}
+              {selectedOption.label.length > 30 ? "..." : ""}
             </span>
             <div className="color-indicators flex gap-x-1 items-center ml-auto my-auto">
               <div
@@ -78,20 +101,55 @@ const CustomDropdown = ({ options, state, setState }) => {
             </div>
           </div>
         ) : (
-          <span>Please select one</span>
+          <span className="px-2.5">Please select one</span>
         )}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class={`ml-auto mr-2 w-3 h-3 icon icon-tabler icon-tabler-chevron-down ${
+            isOpen ? "text-dark dark:text-light" : "text-dark dark:text-light"
+          }`}
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          stroke="currentColor"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M6 9l6 6l6 -6"></path>
+        </svg>
       </button>
       {isOpen && (
-        <div className="dropdown-options absolute top-12 bg-white border rounded-lg border-light w-full h-72 overflow-scroll shadow-lg shadow-dark/[15%]">
+        <div
+          style={{
+            background:
+              theme == "light"
+                ? `${state.lightest}`
+                : `rgba(${hexToRgb(state.dark)}, 1)`,
+            borderColor:
+              theme == "light"
+                ? `rgba(${hexToRgb(state.light)}, 1)`
+                : `rgba(${hexToRgb(state.light)}, 0.15)`,
+          }}
+          className="dropdown-options absolute top-12 border rounded-lg w-full h-72 overflow-scroll shadow-lg shadow-dark/[15%]"
+        >
           {options.map((option, index) => (
             <button
-              className="dropdown-option px-2.5 py-2 flex justify-start border-b border-light last:border-0 gap-y-0.5 w-full"
+              style={{
+                borderColor:
+                  theme == "light"
+                    ? `rgba(${hexToRgb(state.light)}, 1)`
+                    : `rgba(${hexToRgb(state.light)}, 0.15)`,
+              }}
+              className="dropdown-option px-2.5 py-2 flex justify-start border-b last:border-0 gap-y-0.5 w-full text-dark dark:text-white"
               key={option.value + index}
               onClick={() => handleOptionSelect(option)}
             >
-              <span className="flex flex-nowrap text-left text-xs uppercase font-medium">
-                {option.label.substring(0, 11)}
-                {option.label.length > 11 ? "..." : ""}
+              <span className="flex flex-nowrap text-left text-sm font-medium">
+                {option.label.substring(0, 30)}
+                {option.label.length > 30 ? "..." : ""}
               </span>
               <div className="color-indicators flex gap-x-1 ml-auto">
                 <div
@@ -135,24 +193,6 @@ const CustomDropdown = ({ options, state, setState }) => {
           ))}
         </div>
       )}
-
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class={`w-3 h-3 icon icon-tabler icon-tabler-chevron-down ${
-          isOpen ? "text-dark" : "text-mid"
-        }`}
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        strokeWidth="2"
-        stroke="currentColor"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M6 9l6 6l6 -6"></path>
-      </svg>
     </div>
   );
 };

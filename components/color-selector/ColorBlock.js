@@ -27,7 +27,7 @@ const ColorBlock = ({
         className={`btn-sm px-0 flex w-full normal-case`}
       >
         <div
-          className={`rounded-lg border-2 flex transition-all duration-150 ease-in-out overflow-hidden
+          className={`rounded-lg border-2 dark:border-transparent flex transition-all duration-150 ease-in-out overflow-hidden
           `}
         >
           <div
