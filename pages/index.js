@@ -66,7 +66,6 @@ import { Svg054 } from "../components/svgs/Svg054";
 import { Svg055 } from "../components/svgs/Svg055";
 import { Svg056 } from "../components/svgs/Svg056";
 import { Svg057 } from "../components/svgs/Svg057";
-
 import { Svg058 } from "../components/svgs/Svg058";
 import { Svg059 } from "../components/svgs/Svg059";
 import { Svg060 } from "../components/svgs/Svg060";
@@ -74,9 +73,17 @@ import { Svg061 } from "../components/svgs/Svg061";
 import { Svg062 } from "../components/svgs/Svg062";
 import { Svg063 } from "../components/svgs/Svg063";
 import { Svg064 } from "../components/svgs/Svg064";
+
+import { Svg065 } from "../components/svgs/Svg065";
+import { Svg066 } from "../components/svgs/Svg066";
+import { Svg067 } from "../components/svgs/Svg067";
+import { Svg068 } from "../components/svgs/Svg068";
+import { Svg069 } from "../components/svgs/Svg069";
+import { Svg070 } from "../components/svgs/Svg070";
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
 import CustomDropdown from "../components/theme-selector/CustomDropdown";
+import SquiggleLink from "../components/SquiggleLink";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -122,324 +129,354 @@ export default function Home() {
 
   const svgData = [
     {
-      title: "",
+      title: "001",
       filename: "svghub-001",
       component: <Svg001 state={state} />,
     },
     {
-      title: "",
+      title: "002",
       filename: "svghub-002",
       component: <Svg002 state={state} />,
     },
     {
-      title: "",
+      title: "003",
       filename: "svghub-003",
       component: <Svg003 state={state} />,
     },
     {
-      title: "",
+      title: "004",
       filename: "svghub-004",
       component: <Svg004 state={state} />,
     },
     {
-      title: "",
+      title: "005",
       filename: "svghub-005",
       component: <Svg005 state={state} />,
     },
 
     {
-      title: "",
+      title: "006",
       filename: "svghub-006",
       component: <Svg006 state={state} />,
     },
     {
-      title: "",
+      title: "007",
       filename: "svghub-007",
       component: <Svg007 state={state} />,
     },
     {
-      title: "",
+      title: "008",
       filename: "svghub-008",
       component: <Svg008 state={state} />,
     },
     {
-      title: "",
+      title: "009",
       filename: "svghub-009",
       component: <Svg009 state={state} />,
     },
 
     {
-      title: "",
+      title: "010",
       filename: "svghub-010",
       component: <Svg010 state={state} />,
     },
     {
-      title: "",
+      title: "011",
       filename: "svghub-011",
       component: <Svg011 state={state} />,
     },
     {
-      title: "",
+      title: "012",
       filename: "svghub-012",
       component: <Svg012 state={state} />,
     },
     {
-      title: "",
+      title: "013",
       filename: "svg-hub-013",
       component: <Svg013 state={state} />,
     },
     {
-      title: "",
+      title: "014",
       filename: "svg-hub-014",
       component: <Svg014 state={state} />,
     },
     {
-      title: "",
+      title: "015",
       filename: "svg-hub-015",
       component: <Svg015 state={state} />,
     },
     {
-      title: "",
+      title: "016",
       filename: "svg-hub-016",
       component: <Svg016 state={state} />,
     },
     {
-      title: "",
+      title: "017",
       filename: "svg-hub-017",
       component: <Svg017 state={state} />,
     },
     {
-      title: "",
+      title: "018",
       filename: "svg-hub-018",
       component: <Svg018 state={state} />,
     },
     {
-      title: "",
+      title: "019",
       filename: "svg-hub-019",
       component: <Svg019 state={state} />,
     },
 
     {
-      title: "",
+      title: "021",
       filename: "svg-hub-021",
       component: <Svg021 state={state} />,
     },
     {
-      title: "",
+      title: "021",
       filename: "svg-hub-022",
       component: <Svg022 state={state} />,
     },
     {
-      title: "",
+      title: "023",
       filename: "svg-hub-023",
       component: <Svg023 state={state} />,
     },
     {
-      title: "",
+      title: "023",
       filename: "svg-hub-024",
       component: <Svg024 state={state} />,
     },
     {
-      title: "",
+      title: "025",
       filename: "svg-hub-025",
       component: <Svg025 state={state} />,
     },
     {
-      title: "",
+      title: "026",
       filename: "svg-hub-026",
       component: <Svg026 state={state} />,
     },
     {
-      title: "",
+      title: "027",
       filename: "svg-hub-027",
       component: <Svg027 state={state} />,
     },
     {
-      title: "",
+      title: "028",
       filename: "svg-hub-028",
       component: <Svg028 state={state} />,
     },
     {
-      title: "",
+      title: "029",
       filename: "svg-hub-029",
       component: <Svg029 state={state} />,
     },
     {
-      title: "",
+      title: "030",
       filename: "svg-hub-030",
       component: <Svg030 state={state} />,
     },
     {
-      title: "",
+      title: "031",
       filename: "svg-hub-031",
       component: <Svg031 state={state} />,
     },
     {
-      title: "",
+      title: "032",
       filename: "svg-hub-032",
       component: <Svg032 state={state} />,
     },
     {
-      title: "",
+      title: "033",
       filename: "svg-hub-033",
       component: <Svg033 state={state} />,
     },
     {
-      title: "",
+      title: "034",
       filename: "svg-hub-034",
       component: <Svg034 state={state} />,
     },
     {
-      title: "",
+      title: "035",
       filename: "svg-hub-035",
       component: <Svg035 state={state} />,
     },
     {
-      title: "",
+      title: "036",
       filename: "svg-hub-036",
       component: <Svg036 state={state} />,
     },
     {
-      title: "",
+      title: "037",
       filename: "svg-hub-037",
       component: <Svg037 state={state} />,
     },
     {
-      title: "",
+      title: "038",
       filename: "svg-hub-038",
       component: <Svg038 state={state} />,
     },
     {
-      title: "",
+      title: "039",
       filename: "svg-hub-039",
       component: <Svg039 state={state} />,
     },
 
     {
-      title: "",
+      title: "040",
       filename: "svg-hub-040",
       component: <Svg040 state={state} />,
     },
     {
-      title: "",
+      title: "041",
       filename: "svg-hub-041",
       component: <Svg041 state={state} />,
     },
     {
-      title: "",
+      title: "042",
       filename: "svg-hub-042",
       component: <Svg042 state={state} />,
     },
     {
-      title: "",
+      title: "043",
       filename: "svg-hub-043",
       component: <Svg043 state={state} />,
     },
     {
-      title: "",
+      title: "044",
       filename: "svg-hub-044",
       component: <Svg044 state={state} />,
     },
     {
-      title: "",
+      title: "045",
       filename: "svg-hub-045",
       component: <Svg045 state={state} />,
     },
     {
-      title: "",
+      title: "046",
       filename: "svg-hub-046",
       component: <Svg046 state={state} />,
     },
     {
-      title: "",
+      title: "047",
       filename: "svg-hub-047",
       component: <Svg047 state={state} />,
     },
     {
-      title: "",
+      title: "048",
       filename: "svg-hub-048",
       component: <Svg048 state={state} />,
     },
     {
-      title: "",
+      title: "049",
       filename: "svg-hub-049",
       component: <Svg049 state={state} />,
     },
     {
-      title: "",
+      title: "050",
       filename: "svg-hub-050",
       component: <Svg050 state={state} />,
     },
     {
-      title: "",
+      title: "051",
       filename: "svg-hub-051",
       component: <Svg051 state={state} />,
     },
     {
-      title: "",
+      title: "052",
       filename: "svg-hub-052",
       component: <Svg052 state={state} />,
     },
     {
-      title: "",
+      title: "053",
       filename: "svg-hub-053",
       component: <Svg053 state={state} />,
     },
     {
-      title: "",
+      title: "054",
       filename: "svg-hub-054",
       component: <Svg054 state={state} />,
     },
     {
-      title: "",
+      title: "055",
       filename: "svg-hub-055",
       component: <Svg055 state={state} />,
     },
     {
-      title: "",
+      title: "056",
       filename: "svg-hub-056",
       component: <Svg056 state={state} />,
     },
     {
-      title: "",
+      title: "057",
       filename: "svg-hub-057",
       component: <Svg057 state={state} />,
     },
     {
-      title: "",
+      title: "058",
       filename: "svg-hub-058",
       component: <Svg058 state={state} />,
     },
     {
-      title: "",
+      title: "059",
       filename: "svg-hub-059",
       component: <Svg059 state={state} />,
     },
 
     {
-      title: "",
+      title: "060",
       filename: "svg-hub-060",
       component: <Svg060 state={state} />,
     },
     {
-      title: "",
+      title: "061",
       filename: "svg-hub-061",
       component: <Svg061 state={state} />,
     },
     {
-      title: "",
+      title: "062",
       filename: "svg-hub-062",
       component: <Svg062 state={state} />,
     },
     {
-      title: "",
+      title: "063",
       filename: "svg-hub-063",
       component: <Svg063 state={state} />,
     },
     {
-      title: "",
+      title: "064",
       filename: "svg-hub-064",
       component: <Svg064 state={state} />,
+    },
+    {
+      title: "065",
+      filename: "svg-hub-065",
+      component: <Svg065 state={state} />,
+    },
+    {
+      title: "066",
+      filename: "svg-hub-066",
+      component: <Svg066 state={state} />,
+    },
+    {
+      title: "067",
+      filename: "svg-hub-067",
+      component: <Svg067 state={state} />,
+    },
+    {
+      title: "068",
+      filename: "svg-hub-068",
+      component: <Svg068 state={state} />,
+    },
+    {
+      title: "069",
+      filename: "svg-hub-069",
+      component: <Svg069 state={state} />,
+    },
+    {
+      title: "070",
+      filename: "svg-hub-070",
+      component: <Svg070 state={state} />,
     },
   ];
 
@@ -609,6 +646,8 @@ export default function Home() {
               <SvgComponent key={index} svgContent={item.component} />
             </div>
 
+            {item.title}
+
             <div
               style={{
                 borderColor: theme == "light" ? state.light : state.dark,
@@ -767,17 +806,24 @@ export default function Home() {
       <main className="container mx-auto z-20 w-full">
         <section id="landing-page">
           <section className="relative flex-col lg:flex-row rounded-2xl flex container gap-y-4 mx-auto h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
-            <article className="flex flex-col grow text-left justify-center gap-y-4">
-              <h1 className="leading-tight">
-                Spice up your UI with simple SVGs
+            <article className="flex flex-col text-left w-[calc(100%-400px)] justify-center gap-y-4">
+              <h1 className="leading-tight text-dark">
+                <span
+                  style={{
+                    backgroundImage: "url(/svgs/squiggle.svg)",
+                  }}
+                >
+                  Squiggles
+                </span>
+                , scribbles, shapes and... other stuff.
               </h1>
               <p className="text-xl text-darkest/60">
-                A library of over 60 custom color SVG ornaments, scribbles and
-                shapes.
+                A library of 70 custom-color elements ready to paste into your
+                project.
               </p>
             </article>
 
-            <article className="flex w-[480px] h-[480px] relative items-start">
+            <article className="flex w-[400px] h-[400px] relative items-start">
               <div
                 className="flex w-[82%] h-[82%] mx-auto my-auto"
                 style={{ animation: "bobbleAndRotate 3s infinite" }}

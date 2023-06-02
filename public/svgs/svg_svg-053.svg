@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-  <rect x="22.33" y="56.62" width="62.5" height="210.86" fill={state.brand}/>
-  <rect x="84.83" y="56.62" width="62.5" height="210.86" fill={state.darkest}/>
-  <rect x="147.33" y="56.62" width="62.5" height="210.86" fill={state.mid}/>
-  <rect x="209.83" y="56.62" width="62.5" height="210.86" style="fill: #e8e2d8;"/>
+  <rect x="26" y="45" width="62" height="210" style="fill: #db3f29;"/>
+  <rect x="88" y="45" width="62" height="210" style="fill: #212b50;"/>
+  <rect x="150" y="45" width="62" height="210" style="fill: #d7a449;"/>
+  <rect x="212" y="45" width="62" height="210" style="fill: #e8e2d8;"/>
 </svg>
