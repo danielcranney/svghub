@@ -481,7 +481,7 @@ export default function Home() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showingDropdown]);
+  }, [showingDropdown, handleClickOutside]);
 
   useEffect(() => {
     if (error) {

@@ -7,7 +7,7 @@ import { Undraw2 } from "../components/illustrations/Undraw2";
 import { Undraw3 } from "../components/illustrations/Undraw3";
 import { ThemeSwatch } from "../components/ThemeSwatch";
 import { CurrentThemeSwatch } from "../components/CurrentThemeSwatch";
-// import { AsideLayout } from "../components/layouts/AsideLayout";
+import { AsideLayout } from "../components/layouts/AsideLayout";
 import { Header } from "../components/structure/Header";
 
 const data = [

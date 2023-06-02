@@ -10,7 +10,7 @@ const ColorBlock = ({
 
   useEffect(() => {
     if (!mounted) setMounted(true);
-  }, [state]);
+  }, []);
 
   if (!mounted) return;
 
