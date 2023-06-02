@@ -7,8 +7,6 @@ const CustomDropdown = ({ options, state, setState }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
-  console.log(options);
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -39,11 +37,11 @@ const CustomDropdown = ({ options, state, setState }) => {
     <div
       style={{
         background:
-          theme == "light"
+          currentTheme == "light"
             ? `rgba(${hexToRgb(state.light)}, 0.50)`
             : `rgba(${hexToRgb(state.dark)}, 0.20)`,
         borderColor:
-          theme == "light"
+          currentTheme == "light"
             ? `rgba(${hexToRgb(state.light)}, 1)`
             : `rgba(${hexToRgb(state.light)}, 0.15)`,
       }}
@@ -125,11 +123,11 @@ const CustomDropdown = ({ options, state, setState }) => {
         <div
           style={{
             background:
-              theme == "light"
+              currentTheme == "light"
                 ? `${state.lightest}`
                 : `rgba(${hexToRgb(state.dark)}, 1)`,
             borderColor:
-              theme == "light"
+              currentTheme == "light"
                 ? `rgba(${hexToRgb(state.light)}, 1)`
                 : `rgba(${hexToRgb(state.light)}, 0.15)`,
           }}
@@ -139,7 +137,7 @@ const CustomDropdown = ({ options, state, setState }) => {
             <button
               style={{
                 borderColor:
-                  theme == "light"
+                  currentTheme == "light"
                     ? `rgba(${hexToRgb(state.light)}, 1)`
                     : `rgba(${hexToRgb(state.light)}, 0.15)`,
               }}

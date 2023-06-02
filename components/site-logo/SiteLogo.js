@@ -5,7 +5,6 @@ export const SiteLogo = ({ state }) => {
   return (
     <div className="logo-container">
       <Link href="/">
-        {/* <Emblem state={state} /> */}
         <svg
           id="uuid-fbf7da90-307e-4327-809c-b6d19e96b626"
           xmlns="http://www.w3.org/2000/svg"

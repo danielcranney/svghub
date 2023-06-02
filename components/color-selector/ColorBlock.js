@@ -37,15 +37,6 @@ const ColorBlock = ({
             className={`flex items-center w-8 h-8 justify-center box-border transition-all duration-150 ease-in-out overflow-hidden`}
           ></div>
         </div>
-        {/* <p className={`mb-0 text-sm font-semibold menu-item mr-auto`}>
-          {colorCategory[0].toUpperCase() + colorCategory.substring(1)}
-        </p>
-
-        <p
-          className={`mb-0 text-left text-xs font-semibold tracking-wide dark:text-white uppercase`}
-        >
-          {state[colorCategory]}
-        </p> */}
       </button>
     </div>
   );
