@@ -1,5 +1,8 @@
 import React from "react";
 
-export const Artist = () => {
-  return <div>Artist</div>;
+const ArtistPage = () => {
+  // Your page component logic here
+  return <div>Artist Page</div>;
 };
+
+export default ArtistPage;
