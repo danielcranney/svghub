@@ -74,7 +74,7 @@ export const Header = ({ state }) => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 icon icon-tabler icon-tabler-brand-twitter"
+              className="w-5 h-5 icon icon-tabler icon-tabler-brand-twitter"
               width="32"
               height="32"
               viewBox="0 0 24 24"

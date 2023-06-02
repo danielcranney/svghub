@@ -446,32 +446,32 @@ export default function Home() {
   const colorBlockNode = useRef();
   const colorSelectorNode = useRef();
 
-  const handleClickOutside = (e) => {
-    if (
-      (colorBlockNode.current && colorBlockNode.current.contains(e.target)) ||
-      (colorSelectorNode.current &&
-        colorSelectorNode.current.contains(e.target))
-    ) {
-      // inside click
-      console.log("clicked inside");
-      return;
-    }
-    // console.log("clicked outside", e.target);
-    setShowingDropdown("");
-    // outside click
-    // dispatch({
-    //   type: ACTIONS.HEX_COLOR_SELECTION_COMPLETE,
-    // });
-    if (typeof window !== "undefined") {
-      //  Update localStorage with state, but with isEditing turned to false
-      let str = JSON.stringify(state);
-      let newStr = str.replace(/true/g, "false");
-      let newObj = JSON.parse(newStr);
-      localStorage.setItem("svgHubState", JSON.stringify(newObj));
-    } else return;
-  };
-
   useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        (colorBlockNode.current && colorBlockNode.current.contains(e.target)) ||
+        (colorSelectorNode.current &&
+          colorSelectorNode.current.contains(e.target))
+      ) {
+        // inside click
+        console.log("clicked inside");
+        return;
+      }
+      // console.log("clicked outside", e.target);
+      setShowingDropdown("");
+      // outside click
+      // dispatch({
+      //   type: ACTIONS.HEX_COLOR_SELECTION_COMPLETE,
+      // });
+      if (typeof window !== "undefined") {
+        //  Update localStorage with state, but with isEditing turned to false
+        let str = JSON.stringify(state);
+        let newStr = str.replace(/true/g, "false");
+        let newObj = JSON.parse(newStr);
+        localStorage.setItem("svgHubState", JSON.stringify(newObj));
+      } else return;
+    };
+
     if (showingDropdown !== "") {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
@@ -481,7 +481,7 @@ export default function Home() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showingDropdown, handleClickOutside]);
+  }, [showingDropdown]);
 
   useEffect(() => {
     if (error) {
@@ -831,7 +831,7 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-8 h-8 icon icon-tabler icon-tabler-clipboard-check"
+                    className="w-8 h-8 icon icon-tabler icon-tabler-clipboard-check"
                     width="32"
                     height="32"
                     viewBox="0 0 24 24"
@@ -866,7 +866,7 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
+                    className="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
                     width="32"
                     height="32"
                     viewBox="0 0 24 24"
@@ -929,7 +929,7 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-8 h-8 icon icon-tabler icon-tabler-download"
+                    className="w-8 h-8 icon icon-tabler icon-tabler-download"
                     width="32"
                     height="32"
                     viewBox="0 0 24 24"
@@ -964,7 +964,7 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
+                    className="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
                     width="32"
                     height="32"
                     viewBox="0 0 24 24"
