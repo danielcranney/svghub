@@ -231,7 +231,7 @@ const ColorSelector = forwardRef((props, ref) => {
             className="relative flex w-full p-4 overflow-auto"
             id="colorContent"
           >
-            <TailwindColors colorCategory={colorCategory} colors={colors} />
+            {/* <TailwindColors colorCategory={colorCategory} colors={colors} /> */}
           </div>
           <div className="z-40 flex items-center justify-end px-3 py-2 border-t border-light/30 dark:border-neutral-700">
             <span className="mr-2 text-xs text-slate-500">Scroll for more</span>
