@@ -807,6 +807,7 @@ export default function Home() {
         <section id="landing-page">
           <section className="relative flex-col lg:flex-row rounded-2xl flex container gap-y-4 mx-auto h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
             <article className="flex flex-col text-left w-[calc(100%-400px)] justify-center gap-y-4">
+             
               <h1 className="leading-tight text-dark">
                 <span
                   style={{

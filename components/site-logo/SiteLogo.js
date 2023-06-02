@@ -102,7 +102,7 @@ export const SiteLogo = ({ state }) => {
           </g>
         </svg>
 
-        <p>
+        <p className="text-dark">
           svg<span className="font-normal">hub</span>
         </p>
       </Link>
