@@ -849,22 +849,22 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.jpg"
+          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.png"
         />
         <meta property="og:url" content="http://www.svghub.vercel.app" />
         <meta property="twitter:title" content="SVG Hub" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:image"
-          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.jpg"
+          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.png"
         />
         <meta
           property="twitter:description"
           content="SVG Hub | Custom-color elements ready to paste into your project"
         />
         <meta property="twitter:creator" content="@danielcranney" />
-
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-32x32.png" />
       </Head>
 
       <Header state={state} />
