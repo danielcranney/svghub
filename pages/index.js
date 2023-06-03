@@ -555,7 +555,7 @@ export default function Home() {
         {svgContent}
         <button
           onClick={handleHoveredCopyClick}
-          className="hidden group-hover:flex absolute h-full w-full bg-darkest/20 items-center justify-center rounded-lg cursor-pointer"
+          className="hidden group-hover:flex absolute h-full w-full bg-darkest/20 items-center justify-center rounded-lg cursor-pointer top-0 left-0"
         >
           <div className="flex bg-white rounded-lg text-sm uppercase font-medium text-mid px-1.5 py-1 shadow-lg shadow-darkest/20">
             {loadingCopy ? (
@@ -618,7 +618,7 @@ export default function Home() {
               <div
                 key={index}
                 className={`svg-item w-[100%] mx-auto my-auto aspect-square ${
-                  currentSvgIndex === index ? "flex" : "hidden"
+                  currentSvgIndex === index ? "block" : "hidden"
                 }`}
               >
                 {item.component}
@@ -649,16 +649,19 @@ export default function Home() {
     return (
       <>
         {svgData.map((item, index) => (
-          <div key={item + index} className="svg-item-box box relative gap-y-1">
-            <div className="flex w-full h-full group relative aspect-square">
+          <div
+            key={item + index}
+            className="svg-item-box box relative gap-y-1 min-h-72"
+          >
+            <div className="aspect-square group relative max-w-[15rem]">
               <SvgComponent key={index} svgContent={item.component} />
             </div>
 
             <div
               style={{
-                borderColor: theme == "light" ? state.light : state.dark,
+                borderColor: currentTheme == "light" ? state.light : state.dark,
               }}
-              className="flex mx-auto items-center pt-4 border-t mt-3 gap-x-2"
+              className="flex mx-auto items-center pt-4 border-t mt-3 gap-x-2 w-full justify-center"
             >
               <button
                 className="flex btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
@@ -683,7 +686,6 @@ export default function Home() {
                   <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
                   <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
                 </svg>
-                <span className="flex lg:hidden">Copy</span>
               </button>
               <button
                 className="btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
@@ -709,7 +711,6 @@ export default function Home() {
                   <path d="M7 11l5 5l5 -5"></path>
                   <path d="M12 4l0 12"></path>
                 </svg>
-                <span className="flex lg:hidden">Download</span>
               </button>
             </div>
           </div>
@@ -767,7 +768,7 @@ export default function Home() {
           href="http://www.profileme.dev"
           target="_blank"
           rel="noreferrer"
-          className="relative w-full h-full rounded-lg flex flex-col justify-center p-5 col-start-1  row-start-[9] row-span-1 col-span-1 lg:col-start-1 lg:row-start-6 lg:row-span-1 lg:col-span-1 text-lightest gap-y-3 items-start cursor-pointer"
+          className="relative w-full h-full rounded-lg flex flex-col justify-center p-5 col-start-1  row-start-[9] row-span-1 col-span-2 md:col-span-2 lg:col-start-1 lg:row-start-6 lg:row-span-1 lg:col-span-2 text-lightest gap-y-3 items-start cursor-pointer"
           style={{
             background: `linear-gradient(to bottom, ${state.dark}, ${state.darkest}`,
           }}
@@ -821,7 +822,7 @@ export default function Home() {
       id="site-wrapper"
       style={{
         background:
-          theme == "light"
+          currentTheme == "light"
             ? `rgba(${hexToRgb(state.brand)}, 0.15)`
             : `rgba(${hexToRgb(state.brand)}, 0.15)`,
       }}
@@ -889,7 +890,7 @@ export default function Home() {
               </p>
             </article>
 
-            <article className="flex w-1/3 aspect-square md:aspect-auto md:w-[270px] md:h-[270px] lg:w-[400px] lg:h-[400px] relative items-start">
+            <article className="flex aspect-square md:aspect-auto w-[300px] h-[300px] md:w-[270px] md:h-[270px] lg:w-[400px] lg:h-[400px] relative items-start">
               <div
                 className="flex w-[82%] h-[82%] mx-auto my-auto"
                 style={{ animation: "bobbleAndRotate 3s infinite" }}
@@ -897,7 +898,7 @@ export default function Home() {
                 <LandingSvgRotator />
               </div>
               <div
-                className="absolute top-0 left-0 w-[100%] h-[100%] z-50  flex items-center"
+                className="absolute top-0 left-0 w-[100%] h-[100%] z-50 block items-center"
                 style={{ animation: "bobble 2.5s infinite" }}
               >
                 <Svg055 state={state} />

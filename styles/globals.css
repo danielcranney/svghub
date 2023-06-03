@@ -228,6 +228,6 @@
 
 @layer components {
   .svg-item-box {
-    @apply overflow-hidden rounded-lg bg-white dark:bg-white/[4%] hover:shadow-xl shadow-dark/10 transition-shadow duration-300 ease-in-out;
+    @apply rounded-lg bg-white dark:bg-white/[4%] hover:shadow-xl shadow-dark/10 transition-shadow duration-300 ease-in-out;
   }
 }
