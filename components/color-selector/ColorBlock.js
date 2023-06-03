@@ -34,7 +34,7 @@ const ColorBlock = ({
             style={{
               backgroundColor: state[colorCategory],
             }}
-            className={`flex items-center w-8 h-8 justify-center box-border transition-all duration-150 ease-in-out overflow-hidden`}
+            className={`flex items-center w-5 h-5 lg:w-8 lg:h-8 justify-center box-border transition-all duration-150 ease-in-out overflow-hidden`}
           ></div>
         </div>
       </button>

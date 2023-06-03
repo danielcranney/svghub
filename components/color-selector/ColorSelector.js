@@ -94,14 +94,14 @@ const ColorSelector = forwardRef((props, ref) => {
       className="flex flex-col w-full relative z-50 rounded-lg"
       ref={ref}
     >
-      <div className="relative flex w-full overflow-auto mb-4">
-        <div className="flex flex-col items-stretch w-full gap-2">
+      <div className="relative flex w-full overflow-auto py-3">
+        <div className="flex flex-col items-center justify-center w-full gap-2">
           <HexColorPicker color={testColor} onChange={setTestColor} />
-          <div className="flex items-center gap-x-1.5 w-full">
+          <div className="flex items-center gap-x-1.5 w-full px-3">
             <input
               maxLength="7"
               value={inputColor}
-              className="relative bg-light/50 dark:bg-lightest/5 border border-light rounded-md text-xs focus:outline-none focus:border-mid/50 dark:border-dark flex items-center text-center h-8 text-dark dark:text-lightest font-medium tracking-wide w-40 uppercase"
+              className="relative bg-light/50 dark:bg-lightest/5 border border-light rounded-md text-xs focus:outline-none focus:border-mid/50 dark:border-dark flex items-center text-center h-8 text-dark dark:text-lightest font-medium tracking-wide grow uppercase"
               onChange={(e) => {
                 // console.log("E.target.value is ", e.target.value);
                 setInputColor(e.target.value);

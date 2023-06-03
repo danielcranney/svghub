@@ -488,18 +488,17 @@ export default function Home() {
       if (
         (colorBlockNode.current && colorBlockNode.current.contains(e.target)) ||
         (colorSelectorNode.current &&
-          colorSelectorNode.current.contains(e.target))
+          colorSelectorNode.current.contains(e.target)) ||
+        (themeDropdownNode.current &&
+          themeDropdownNode.current.contains(e.target))
       ) {
         // inside click
         console.log("clicked inside");
         return;
       }
       // console.log("clicked outside", e.target);
-      setShowingDropdown("");
-      // outside click
-      // dispatch({
-      //   type: ACTIONS.HEX_COLOR_SELECTION_COMPLETE,
-      // });
+      setShowingDropdown(false);
+
       if (typeof window !== "undefined") {
         //  Update localStorage with state, but with isEditing turned to false
         let str = JSON.stringify(state);
@@ -642,7 +641,7 @@ export default function Home() {
       <>
         {svgData.map((item, index) => (
           <div key={item + index} className="svg-item-box box relative gap-y-1">
-            <div className="flex w-full h-full group relative">
+            <div className="flex w-full h-full group relative aspect-square">
               <SvgComponent key={index} svgContent={item.component} />
             </div>
 
@@ -795,7 +794,9 @@ export default function Home() {
       }}
     >
       <Head>
-        <title>svghub</title>
+        <title>
+          SVG Hub | Custom-color elements ready to paste into your project
+        </title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
@@ -843,15 +844,15 @@ export default function Home() {
             className={`${showCopyModal ? "" : "hidden"}
           flex flex-col w-full h-full bg-darkest/80 fixed left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-50 shadow-xl shadow-darkest/30 items-center justify-center`}
           >
-            <div className="flex w-3/5 mx-auto mb-2">
+            <div className="flex w-[calc(85%)] lg:w-3/5 mx-auto mb-2">
               <button
                 onClick={handleCloseCopyModal}
-                style={{ background: state.brand }}
+                style={{ background: state.brand, color: state.darkest }}
                 className="ml-auto w-10 h-10 flex items-center justify-center rounded-lg shadow-xl shadow-darkest/20"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 icon icon-tabler icon-tabler-x text-white"
+                  className="w-8 h-8 icon icon-tabler icon-tabler-x"
                   width="32"
                   height="32"
                   viewBox="0 0 24 24"
@@ -867,11 +868,17 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <div className="bg-white rounded-xl p-8 w-3/5 flex items-center justify-center gap-x-10">
-              <div className="flex w-2/5 flex-col gap-y-4 w-ful">
+            <div
+              style={{
+                background:
+                  currentTheme == "light" ? state.lightest : state.darkest,
+              }}
+              className="rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10"
+            >
+              <div className="flex w-full lg:w-2/5 flex-col gap-y-4 w-ful">
                 <div
-                  style={{ background: state.brand }}
-                  className="flex w-16 h-16 rounded-full text-white items-center justify-center"
+                  style={{ background: state.brand, color: state.darkest }}
+                  className="flex w-16 h-16 rounded-full items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -928,7 +935,7 @@ export default function Home() {
               </div>
               <div
                 style={{ background: state.dark }}
-                className="w-3/5 h-96 flex overflow-hidden relative"
+                className="hidden lg:flex w-full lg:w-3/5 h-96 overflow-hidden relative"
               >
                 <div className="absolute -top-12 left-10 scale-[170%] rotate-6 w-full h-full overflow-hidden">
                   <Svg057 state={state} />
@@ -941,15 +948,15 @@ export default function Home() {
             className={`${showDownloadModal ? "" : "hidden"}
           flex flex-col w-full h-full bg-darkest/80 fixed left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-50 shadow-xl shadow-darkest/30 items-center justify-center`}
           >
-            <div className="flex w-3/5 mx-auto mb-2">
+            <div className="flex w-[calc(85%)] lg:w-3/5 mx-auto mb-2">
               <button
                 onClick={handleCloseDownloadModal}
-                style={{ background: state.brand }}
+                style={{ background: state.brand, color: state.darkest }}
                 className="ml-auto w-10 h-10 flex items-center justify-center rounded-lg shadow-xl shadow-darkest/20"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 icon icon-tabler icon-tabler-x text-white"
+                  className="w-8 h-8 icon icon-tabler icon-tabler-x"
                   width="32"
                   height="32"
                   viewBox="0 0 24 24"
@@ -965,11 +972,11 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <div className="bg-white rounded-xl p-8 w-3/5 flex items-center justify-center gap-x-10">
-              <div className="flex w-2/5 flex-col gap-y-4 w-ful">
+            <div className="bg-white rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10">
+              <div className="flex w-full lg:w-2/5 flex-col gap-y-4">
                 <div
-                  style={{ background: state.brand }}
-                  className="flex w-16 h-16 rounded-full text-white items-center justify-center"
+                  style={{ background: state.brand, color: state.darkest }}
+                  className="flex w-16 h-16 rounded-full items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1026,7 +1033,7 @@ export default function Home() {
               </div>
               <div
                 style={{ background: state.dark }}
-                className="w-3/5 h-96 flex overflow-hidden relative"
+                className="hidden lg:w-3/5 h-96 lg:flex overflow-hidden relative"
               >
                 <div className="absolute -top-12 left-10 scale-[170%] rotate-6 w-full h-full overflow-hidden">
                   <Svg048 state={state} />
