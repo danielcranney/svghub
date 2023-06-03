@@ -830,6 +830,40 @@ export default function Home() {
         <title>
           SVG Hub | Custom-color elements ready to paste into your project
         </title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+        />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="SVG Hub | Custom-color elements ready to paste into your project"
+        />
+        <meta name="author" content="Dan Cranney" />
+        <meta property="og:site_name" content="SVG Hub" />
+        <meta property="og:site" content="http://www.svghub.vercel.app" />
+        <meta property="og:title" content="SVG Hub" />
+        <meta
+          property="og:description"
+          content="SVG Hub | Custom-color elements ready to paste into your project"
+        />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.jpg"
+        />
+        <meta property="og:url" content="http://www.svghub.vercel.app" />
+        <meta property="twitter:title" content="SVG Hub" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:image"
+          content="https://raw.githubusercontent.com/danielcranney/repo-storage/main/svghub-social-image.jpg"
+        />
+        <meta
+          property="twitter:description"
+          content="SVG Hub | Custom-color elements ready to paste into your project"
+        />
+        <meta property="twitter:creator" content="@danielcranney" />
+
         <link rel="icon" href="/favicon.png" />
       </Head>
 
