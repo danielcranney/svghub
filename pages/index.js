@@ -538,7 +538,7 @@ export default function Home() {
       };
     }, []);
 
-    const handleCopyClick = (event) => {
+    const handleHoveredCopyClick = (event) => {
       setLoadingCopy(true);
       const svgContent =
         event.target.parentElement.parentElement.parentElement.querySelector(
@@ -554,7 +554,7 @@ export default function Home() {
       <>
         {svgContent}
         <button
-          onClick={handleCopyClick}
+          onClick={handleHoveredCopyClick}
           className="hidden group-hover:flex absolute h-full w-full bg-darkest/20 items-center justify-center rounded-lg cursor-pointer"
         >
           <div className="flex bg-white rounded-lg text-sm uppercase font-medium text-mid px-1.5 py-1 shadow-lg shadow-darkest/20">
@@ -635,6 +635,17 @@ export default function Home() {
   };
 
   const SvgContainer = () => {
+    const handleCopyClick = (event) => {
+      setLoadingCopy(true);
+      const svgContent = event.target
+        .closest(".svg-item-box")
+        .querySelector("svg").outerHTML;
+      // Copy the SVG content to the clipboard
+      navigator.clipboard.writeText(svgContent);
+      setLoadingCopy(false);
+      setShowCopyModal(true);
+    };
+
     return (
       <>
         {svgData.map((item, index) => (
@@ -647,11 +658,35 @@ export default function Home() {
               style={{
                 borderColor: theme == "light" ? state.light : state.dark,
               }}
-              className="flex items-center pt-4 border-t"
+              className="flex mx-auto items-center pt-4 border-t mt-3 gap-x-2"
             >
-              {/* <p className="text-xs">{item.title}</p> */}
               <button
-                className="btn-xs bg-light ml-auto text-dark hover:text-darkest group mx-auto"
+                className="flex btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
+                onClick={(e) => {
+                  handleCopyClick(e);
+                  setShowCopyModal(true);
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 icon icon-tabler icon-tabler-copy"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+                  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                </svg>
+                <span className="flex lg:hidden">Copy</span>
+              </button>
+              <button
+                className="btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
                 onClick={() => {
                   handleDownloadSVG(item.component, item.filename);
                   setShowDownloadModal(true);
@@ -674,7 +709,7 @@ export default function Home() {
                   <path d="M7 11l5 5l5 -5"></path>
                   <path d="M12 4l0 12"></path>
                 </svg>
-                SVG
+                <span className="flex lg:hidden">Download</span>
               </button>
             </div>
           </div>
@@ -802,8 +837,8 @@ export default function Home() {
 
       <main className="container mx-auto z-20 w-full">
         <section id="landing-page">
-          <section className="relative flex-col lg:flex-row rounded-2xl flex lg:container gap-y-4 mx-auto h-auto lg:h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
-            <article className="flex flex-col text-center lg:text-left w-full lg:w-[calc(100%-400px)] justify-center gap-y-4 h-[calc(50vh)] lg:h-auto">
+          <section className="relative flex-col md:flex-row rounded-2xl flex lg:container gap-y-4 mx-auto h-auto md:h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
+            <article className="flex flex-col text-center md:text-left w-full md:w-[calc(100%-270px)] lg:w-[calc(100%-400px)] justify-center gap-y-4 h-[calc(50vh)] md:h-auto">
               <h1 className="leading-tight text-dark">
                 <span
                 // style={{
@@ -820,7 +855,7 @@ export default function Home() {
               </p>
             </article>
 
-            <article className="flex w-2/3 aspect-square lg:aspect-auto lg:w-[400px] lg:h-[400px] relative items-start">
+            <article className="flex w-1/3 aspect-square md:aspect-auto md:w-[270px] md:h-[270px] lg:w-[400px] lg:h-[400px] relative items-start">
               <div
                 className="flex w-[82%] h-[82%] mx-auto my-auto"
                 style={{ animation: "bobbleAndRotate 3s infinite" }}

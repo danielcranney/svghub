@@ -91,12 +91,12 @@ export const Header = ({ state }) => {
           <a
             href="http://www.twitter.com/danielcranney"
             rel="noreferrer"
-            className="btn-md shadow-lg shadow-dark/5 text-darkest/80 gap-x-1"
+            className="btn-md shadow-lg aspect-square md:aspect-auto shadow-dark/5 text-darkest/80 gap-x-0 md:gap-x-1.5"
             style={{ background: state.brand }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 icon icon-tabler icon-tabler-brand-twitter"
+              className="shrink-0 w-5 h-5 icon icon-tabler icon-tabler-brand-twitter"
               width="32"
               height="32"
               viewBox="0 0 24 24"
