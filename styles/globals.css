@@ -35,7 +35,7 @@
 
 @layer components {
   body {
-    @apply w-full flex;
+    @apply w-full m-0 box-border;
   }
   a {
     @apply cursor-pointer font-medium;
