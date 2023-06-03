@@ -16,11 +16,11 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        brand: "#E02948",
-        darkest: "#000000",
-        dark: "#303C4E",
-        mid: "#8D9EB6",
-        light: "#E3E9F1",
+        brand: "#DB3F29",
+        darkest: "#03081B",
+        dark: "#212B50",
+        mid: "#D7A449",
+        light: "#E8E2D8",
         lightest: "#FFFFFF",
       },
       fontFamily: {
