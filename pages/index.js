@@ -488,9 +488,7 @@ export default function Home() {
       if (
         (colorBlockNode.current && colorBlockNode.current.contains(e.target)) ||
         (colorSelectorNode.current &&
-          colorSelectorNode.current.contains(e.target)) ||
-        (themeDropdownNode.current &&
-          themeDropdownNode.current.contains(e.target))
+          colorSelectorNode.current.contains(e.target))
       ) {
         // inside click
         console.log("clicked inside");

@@ -79,7 +79,7 @@ useEffect(() => {
             ? `rgba(${hexToRgb(state.light)}, 1)`
             : `rgba(${hexToRgb(state.light)}, 0.15)`,
       }}
-      className="custom-dropdown relative border rounded-md text-sm focus:outline-none focus:border-mid/50 flex items-center grow h-10 cursor-pointer"
+      className="custom-dropdown relative border rounded-md text-sm focus:outline-none focus:border-mid/50 flex items-center grow h-10 cursor-pointer z-30"
     >
       {/* {JSON.stringify(options)} */}
       <button
