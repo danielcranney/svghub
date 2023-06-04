@@ -939,8 +939,8 @@ export default function Home() {
                 , scribbles, shapes and... other stuff.
               </h1>
               <p className="text-xl text-darkest/60">
-                A library of 70 custom-color elements ready to paste into your
-                project.
+                A library of over 70 custom-color elements ready to paste into
+                your project.
               </p>
             </article>
 
