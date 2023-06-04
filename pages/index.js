@@ -86,6 +86,9 @@ import { Svg073 } from "../components/svgs/Svg073";
 import { Svg074 } from "../components/svgs/Svg074";
 import { Svg075 } from "../components/svgs/Svg075";
 import { Svg076 } from "../components/svgs/Svg076";
+import { Svg077 } from "../components/svgs/Svg077";
+// import { Svg078 } from "../components/svgs/Svg078";
+
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
 import CustomDropdown from "../components/theme-selector/CustomDropdown";
@@ -514,6 +517,16 @@ export default function Home() {
       filename: "svg-hub-076",
       component: <Svg076 state={state} />,
     },
+    {
+      title: "077",
+      filename: "svg-hub-077",
+      component: <Svg077 state={state} />,
+    },
+    // {
+    //   title: "078",
+    //   filename: "svg-hub-078",
+    //   component: <Svg078 state={state} />,
+    // },
   ];
 
   const colorBlockNode = useRef();
@@ -1168,7 +1181,7 @@ export default function Home() {
             <div
               style={{
                 background:
-                  currentTheme == "light" ? state.lightest : state.darkest,
+                  currentTheme == "light" ? state.lightest : "state.darkest",
               }}
               className="flex w-full rounded-lg overflow-visible shadow-lg shadow-darkest/[15%]"
             >
@@ -1177,7 +1190,7 @@ export default function Home() {
                   background:
                     currentTheme == "light"
                       ? state.lightest
-                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                      : `rgba(${hexToRgb(state.brand)}, 0.1)`,
                 }}
                 className="box w-full rounded-lg px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
               >
