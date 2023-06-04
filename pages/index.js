@@ -73,13 +73,19 @@ import { Svg061 } from "../components/svgs/Svg061";
 import { Svg062 } from "../components/svgs/Svg062";
 import { Svg063 } from "../components/svgs/Svg063";
 import { Svg064 } from "../components/svgs/Svg064";
-
 import { Svg065 } from "../components/svgs/Svg065";
 import { Svg066 } from "../components/svgs/Svg066";
 import { Svg067 } from "../components/svgs/Svg067";
 import { Svg068 } from "../components/svgs/Svg068";
 import { Svg069 } from "../components/svgs/Svg069";
 import { Svg070 } from "../components/svgs/Svg070";
+
+import { Svg071 } from "../components/svgs/Svg071";
+import { Svg072 } from "../components/svgs/Svg072";
+import { Svg073 } from "../components/svgs/Svg073";
+import { Svg074 } from "../components/svgs/Svg074";
+import { Svg075 } from "../components/svgs/Svg075";
+import { Svg076 } from "../components/svgs/Svg076";
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
 import CustomDropdown from "../components/theme-selector/CustomDropdown";
@@ -478,6 +484,36 @@ export default function Home() {
       filename: "svg-hub-070",
       component: <Svg070 state={state} />,
     },
+    {
+      title: "071",
+      filename: "svg-hub-071",
+      component: <Svg071 state={state} />,
+    },
+    {
+      title: "072",
+      filename: "svg-hub-072",
+      component: <Svg072 state={state} />,
+    },
+    {
+      title: "073",
+      filename: "svg-hub-073",
+      component: <Svg073 state={state} />,
+    },
+    {
+      title: "074",
+      filename: "svg-hub-074",
+      component: <Svg074 state={state} />,
+    },
+    {
+      title: "075",
+      filename: "svg-hub-075",
+      component: <Svg075 state={state} />,
+    },
+    {
+      title: "076",
+      filename: "svg-hub-076",
+      component: <Svg076 state={state} />,
+    },
   ];
 
   const colorBlockNode = useRef();
@@ -585,7 +621,7 @@ export default function Home() {
   };
 
   const LandingSvgRotator = () => {
-    const [currentSvgIndex, setCurrentSvgIndex] = useState(0);
+    const [currentSvgIndex, setCurrentSvgIndex] = useState(null);
 
     useEffect(() => {
       let timer;
@@ -593,37 +629,55 @@ export default function Home() {
 
       const rotateSvg = () => {
         setCurrentSvgIndex(currentIndex);
-        currentIndex = (currentIndex + 1) % svgData.length;
+        currentIndex = getRandomIndex(currentIndex); // Get a random index different from the current index
       };
 
-      // Rotate through SVGs every 1 second
-      timer = setInterval(rotateSvg, 2000);
+      // Rotate through SVGs every 2 seconds
+      timer = setInterval(rotateSvg, 1500);
 
       // After displaying first 3 SVGs, pause for 2 seconds
       setTimeout(() => {
         clearInterval(timer);
         timer = setInterval(rotateSvg, 1000);
-      }, 3000); // Wait 3 seconds (2 seconds pause + 1 second display)
+      }, 2500); // Wait 3 seconds (2 seconds pause + 1 second display)
 
       return () => {
         clearInterval(timer);
       };
     }, []);
 
+    const getRandomIndex = (currentIndex) => {
+      const svgCount = svgData.length;
+      let randomIndex = Math.floor(Math.random() * svgCount);
+
+      // Keep generating a new random index until it's different from the current index
+      while (randomIndex === currentIndex || randomIndex === 53) {
+        randomIndex = Math.floor(Math.random() * svgCount);
+      }
+
+      return randomIndex;
+    };
+
     const renderLandingSvgRotator = () => {
       if (currentSvgIndex !== null) {
         return (
           <>
-            {svgData.map((item, index) => (
-              <div
-                key={index}
-                className={`svg-item w-[100%] mx-auto my-auto aspect-square ${
-                  currentSvgIndex === index ? "block" : "hidden"
-                }`}
-              >
-                {item.component}
-              </div>
-            ))}
+            {svgData.map((item, index) => {
+              if (index !== 53) {
+                return (
+                  <div
+                    key={index}
+                    className={`svg-item w-[100%] mx-auto my-auto aspect-square ${
+                      currentSvgIndex === index ? "block" : "hidden"
+                    }`}
+                  >
+                    {item.component}
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
           </>
         );
       } else {
