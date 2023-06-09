@@ -78,8 +78,8 @@ import { Svg066 } from "../components/svgs/Svg066";
 import { Svg067 } from "../components/svgs/Svg067";
 import { Svg068 } from "../components/svgs/Svg068";
 import { Svg069 } from "../components/svgs/Svg069";
-import { Svg070 } from "../components/svgs/Svg070";
 
+import { Svg070 } from "../components/svgs/Svg070";
 import { Svg071 } from "../components/svgs/Svg071";
 import { Svg072 } from "../components/svgs/Svg072";
 import { Svg073 } from "../components/svgs/Svg073";
@@ -87,7 +87,26 @@ import { Svg074 } from "../components/svgs/Svg074";
 import { Svg075 } from "../components/svgs/Svg075";
 import { Svg076 } from "../components/svgs/Svg076";
 import { Svg077 } from "../components/svgs/Svg077";
-// import { Svg078 } from "../components/svgs/Svg078";
+import { Svg078 } from "../components/svgs/Svg078";
+import { Svg079 } from "../components/svgs/Svg079";
+
+import { Svg080 } from "../components/svgs/Svg080";
+import { Svg081 } from "../components/svgs/Svg081";
+import { Svg082 } from "../components/svgs/Svg082";
+import { Svg083 } from "../components/svgs/Svg083";
+import { Svg084 } from "../components/svgs/Svg084";
+import { Svg085 } from "../components/svgs/Svg085";
+import { Svg086 } from "../components/svgs/Svg086";
+import { Svg087 } from "../components/svgs/Svg087";
+import { Svg088 } from "../components/svgs/Svg088";
+import { Svg089 } from "../components/svgs/Svg089";
+
+import { Svg090 } from "../components/svgs/Svg090";
+import { Svg091 } from "../components/svgs/Svg091";
+import { Svg092 } from "../components/svgs/Svg092";
+import { Svg093 } from "../components/svgs/Svg093";
+import { Svg094 } from "../components/svgs/Svg094";
+import { Svg095 } from "../components/svgs/Svg095";
 
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
@@ -522,11 +541,96 @@ export default function Home() {
       filename: "svg-hub-077",
       component: <Svg077 state={state} />,
     },
-    // {
-    //   title: "078",
-    //   filename: "svg-hub-078",
-    //   component: <Svg078 state={state} />,
-    // },
+    {
+      title: "078",
+      filename: "svg-hub-078",
+      component: <Svg078 state={state} />,
+    },
+    {
+      title: "079",
+      filename: "svg-hub-079",
+      component: <Svg079 state={state} />,
+    },
+    {
+      title: "080",
+      filename: "svg-hub-080",
+      component: <Svg080 state={state} />,
+    },
+    {
+      title: "081",
+      filename: "svg-hub-081",
+      component: <Svg081 state={state} />,
+    },
+    {
+      title: "082",
+      filename: "svg-hub-082",
+      component: <Svg082 state={state} />,
+    },
+    {
+      title: "083",
+      filename: "svg-hub-083",
+      component: <Svg083 state={state} />,
+    },
+    {
+      title: "084",
+      filename: "svg-hub-084",
+      component: <Svg084 state={state} />,
+    },
+    {
+      title: "085",
+      filename: "svg-hub-085",
+      component: <Svg085 state={state} />,
+    },
+    {
+      title: "086",
+      filename: "svg-hub-086",
+      component: <Svg086 state={state} />,
+    },
+    {
+      title: "087",
+      filename: "svg-hub-087",
+      component: <Svg087 state={state} />,
+    },
+    {
+      title: "088",
+      filename: "svg-hub-088",
+      component: <Svg088 state={state} />,
+    },
+    {
+      title: "089",
+      filename: "svg-hub-089",
+      component: <Svg089 state={state} />,
+    },
+    {
+      title: "090",
+      filename: "svg-hub-090",
+      component: <Svg090 state={state} />,
+    },
+    {
+      title: "091",
+      filename: "svg-hub-091",
+      component: <Svg091 state={state} />,
+    },
+    {
+      title: "092",
+      filename: "svg-hub-092",
+      component: <Svg092 state={state} />,
+    },
+    {
+      title: "093",
+      filename: "svg-hub-093",
+      component: <Svg093 state={state} />,
+    },
+    {
+      title: "094",
+      filename: "svg-hub-094",
+      component: <Svg094 state={state} />,
+    },
+    {
+      title: "095",
+      filename: "svg-hub-095",
+      component: <Svg095 state={state} />,
+    },
   ];
 
   const colorBlockNode = useRef();
