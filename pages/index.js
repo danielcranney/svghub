@@ -1053,6 +1053,7 @@ export default function Home() {
             target="_blank"
             className="underline flex text-sm"
             style={{ color: state.darkest }}
+            rel="noreferrer"
           >
             colorhub.app
             <svg
