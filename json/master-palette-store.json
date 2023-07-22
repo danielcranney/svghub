@@ -2588,5 +2588,83 @@
     "title": "get-physical",
     "filterBy": ["pink", "green"],
     "votes": 0
+  },
+  {
+    "_id": { "$oid": "e84rjgm5599fkeefo" },
+    "paletteName": "Barbie",
+    "brand": { "hex": "#fc498e", "rgb": "rgb(252, 73, 142)" },
+    "darkest": { "hex": "#132139", "rgb": "rgb(19, 33, 57)" },
+    "dark": { "hex": "#34507c", "rgb": "rgb(52, 80, 124)" },
+    "mid": { "hex": "#ffb0ce", "rgb": "rgb(255, 176, 206)" },
+    "light": { "hex": "#d6dee7", "rgb": "rgb(214, 222, 231)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
+    "title": "barbie",
+    "filterBy": ["pink"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "ej3948gmmndjl009aeb" },
+    "paletteName": "The Cure",
+    "brand": { "hex": "#D77457", "rgb": "rgb(215, 116, 87)" },
+    "darkest": { "hex": "#233363", "rgb": "rgb(35, 51, 99)" },
+    "dark": { "hex": "#4877b0", "rgb": "rgb(72, 119, 176)" },
+    "mid": { "hex": "#a0c0e6", "rgb": "rgb(160, 192, 230)" },
+    "light": { "hex": "#d6e2f1", "rgb": "rgb(214, 226, 241)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
+    "title": "the-cure",
+    "filterBy": ["orange", "red"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "jmk3999fffjdmcu57dm" },
+    "paletteName": "Paperback",
+    "brand": { "hex": "#D77457", "rgb": "rgb(215, 116, 87)" },
+    "darkest": { "hex": "#373F3D", "rgb": "rgb(55, 63, 61)" },
+    "dark": { "hex": "#618B66", "rgb": "rgb(97, 139, 102)" },
+    "mid": { "hex": "#AEC89F", "rgb": "rgb(174, 200, 159)" },
+    "light": { "hex": "#f4eec6", "rgb": "rgb(244, 238, 198)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
+    "title": "paperback",
+    "filterBy": ["orange", "red", "green"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "ep502239fmbjdlaqo39enn" },
+    "paletteName": "Moira",
+    "brand": { "hex": "#FF6219", "rgb": "rgb(255, 98, 25)" },
+    "darkest": { "hex": "#210f21", "rgb": "rgb(33, 15, 33)" },
+    "dark": { "hex": "#4f2a4f", "rgb": "rgb(79, 42, 79)" },
+    "mid": { "hex": "#a255a2", "rgb": "rgb(162, 85, 162)" },
+    "light": { "hex": "#e6dfb6", "rgb": "rgb(244, 238, 198)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(230, 223, 182)" },
+    "title": "moira",
+    "filterBy": ["orange", "purple"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "fm559vme295gvt5tff9mr38" },
+    "paletteName": "Player",
+    "brand": { "hex": "#1ade62", "rgb": "rgb(26, 222, 98)" },
+    "darkest": { "hex": "#112042", "rgb": "rgb(17, 32, 66)" },
+    "dark": { "hex": "#233563", "rgb": "rgb(35, 53, 99)" },
+    "mid": { "hex": "#2785FF", "rgb": "rgb(39, 133, 255)" },
+    "light": { "hex": "#E1E6EB", "rgb": "rgb(244, 238, 198)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(225, 230, 235)" },
+    "title": "player",
+    "filterBy": ["green", "blue"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "4r439efmdf12ewf8dsj76" },
+    "paletteName": "Santa Ana",
+    "brand": { "hex": "#bb6d64", "rgb": "rgb(187, 109, 100)" },
+    "darkest": { "hex": "#232a38", "rgb": "rgb(35, 42, 56)" },
+    "dark": { "hex": "#466477", "rgb": "rgb(70, 100, 119)" },
+    "mid": { "hex": "#bda07b", "rgb": "rgb(189, 160, 123)" },
+    "light": { "hex": "#E3E2BA", "rgb": "rgb(227, 226, 186)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(225, 230, 235)" },
+    "title": "Santa Ana",
+    "filterBy": ["pink", "red", "blue"],
+    "votes": 0
   }
 ]
