@@ -2635,8 +2635,8 @@
     "darkest": { "hex": "#210f21", "rgb": "rgb(33, 15, 33)" },
     "dark": { "hex": "#4f2a4f", "rgb": "rgb(79, 42, 79)" },
     "mid": { "hex": "#a255a2", "rgb": "rgb(162, 85, 162)" },
-    "light": { "hex": "#e6dfb6", "rgb": "rgb(244, 238, 198)" },
-    "lightest": { "hex": "#ffffff", "rgb": "rgb(230, 223, 182)" },
+    "light": { "hex": "#e6dfb6", "rgb": "rgb(230, 223, 182)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
     "title": "moira",
     "filterBy": ["orange", "purple"],
     "votes": 0
@@ -2649,7 +2649,7 @@
     "dark": { "hex": "#233563", "rgb": "rgb(35, 53, 99)" },
     "mid": { "hex": "#2785FF", "rgb": "rgb(39, 133, 255)" },
     "light": { "hex": "#E1E6EB", "rgb": "rgb(244, 238, 198)" },
-    "lightest": { "hex": "#ffffff", "rgb": "rgb(225, 230, 235)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
     "title": "player",
     "filterBy": ["green", "blue"],
     "votes": 0
@@ -2662,9 +2662,22 @@
     "dark": { "hex": "#466477", "rgb": "rgb(70, 100, 119)" },
     "mid": { "hex": "#bda07b", "rgb": "rgb(189, 160, 123)" },
     "light": { "hex": "#E3E2BA", "rgb": "rgb(227, 226, 186)" },
-    "lightest": { "hex": "#ffffff", "rgb": "rgb(225, 230, 235)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)" },
     "title": "Santa Ana",
     "filterBy": ["pink", "red", "blue"],
+    "votes": 0
+  },
+  {
+    "_id": { "$oid": "9443fgdjj4efdm" },
+    "paletteName": "Oppenheimer",
+    "brand": { "hex": "#F8B55C", "rgb": "rgb(248, 181, 92)" },
+    "darkest": { "hex": "#1a262f", "rgb": "rgb(26, 38, 47)" },
+    "dark": { "hex": "#ba7333", "rgb": "rgb(186, 115, 51)" },
+    "mid": { "hex": "#a89479", "rgb": "rgb(168, 148, 121)" },
+    "light": { "hex": "#d7d4cf", "rgb": "rgb(215, 212, 207)" },
+    "lightest": { "hex": "#ffffff", "rgb": "rgb(225, 255, 255)" },
+    "title": "oppenheimer",
+    "filterBy": ["orange"],
     "votes": 0
   }
 ]
