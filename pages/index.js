@@ -78,7 +78,6 @@ import { Svg066 } from "../components/svgs/Svg066";
 import { Svg067 } from "../components/svgs/Svg067";
 import { Svg068 } from "../components/svgs/Svg068";
 import { Svg069 } from "../components/svgs/Svg069";
-
 import { Svg070 } from "../components/svgs/Svg070";
 import { Svg071 } from "../components/svgs/Svg071";
 import { Svg072 } from "../components/svgs/Svg072";
@@ -89,7 +88,6 @@ import { Svg076 } from "../components/svgs/Svg076";
 import { Svg077 } from "../components/svgs/Svg077";
 import { Svg078 } from "../components/svgs/Svg078";
 import { Svg079 } from "../components/svgs/Svg079";
-
 import { Svg080 } from "../components/svgs/Svg080";
 import { Svg081 } from "../components/svgs/Svg081";
 import { Svg082 } from "../components/svgs/Svg082";
@@ -100,21 +98,30 @@ import { Svg086 } from "../components/svgs/Svg086";
 import { Svg087 } from "../components/svgs/Svg087";
 import { Svg088 } from "../components/svgs/Svg088";
 import { Svg089 } from "../components/svgs/Svg089";
-
 import { Svg090 } from "../components/svgs/Svg090";
 import { Svg091 } from "../components/svgs/Svg091";
 import { Svg092 } from "../components/svgs/Svg092";
 import { Svg093 } from "../components/svgs/Svg093";
 import { Svg094 } from "../components/svgs/Svg094";
 import { Svg095 } from "../components/svgs/Svg095";
-
 import { Svg096 } from "../components/svgs/Svg096";
 import { Svg097 } from "../components/svgs/Svg097";
 import { Svg098 } from "../components/svgs/Svg098";
 import { Svg099 } from "../components/svgs/Svg099";
-
 import { Svg100 } from "../components/svgs/Svg100";
 import { Svg101 } from "../components/svgs/Svg101";
+import { Svg102 } from "../components/svgs/Svg102";
+import { Svg103 } from "../components/svgs/Svg103";
+import { Svg104 } from "../components/svgs/Svg104";
+import { Svg105 } from "../components/svgs/Svg105";
+
+import { Svg106 } from "../components/svgs/Svg106";
+import { Svg107 } from "../components/svgs/Svg107";
+import { Svg108 } from "../components/svgs/Svg108";
+import { Svg109 } from "../components/svgs/Svg109";
+
+import { Svg110 } from "../components/svgs/Svg110";
+import { Svg111 } from "../components/svgs/Svg111";
 
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
@@ -668,6 +675,56 @@ export default function Home() {
       title: "101",
       filename: "svg-hub-101",
       component: <Svg101 state={state} />,
+    },
+    {
+      title: "102",
+      filename: "svg-hub-102",
+      component: <Svg102 state={state} />,
+    },
+    {
+      title: "103",
+      filename: "svg-hub-103",
+      component: <Svg103 state={state} />,
+    },
+    {
+      title: "104",
+      filename: "svg-hub-104",
+      component: <Svg104 state={state} />,
+    },
+    {
+      title: "105",
+      filename: "svg-hub-105",
+      component: <Svg105 state={state} />,
+    },
+    {
+      title: "106",
+      filename: "svg-hub-106",
+      component: <Svg106 state={state} />,
+    },
+    {
+      title: "107",
+      filename: "svg-hub-107",
+      component: <Svg107 state={state} />,
+    },
+    {
+      title: "108",
+      filename: "svg-hub-108",
+      component: <Svg108 state={state} />,
+    },
+    {
+      title: "109",
+      filename: "svg-hub-109",
+      component: <Svg109 state={state} />,
+    },
+    {
+      title: "110",
+      filename: "svg-hub-110",
+      component: <Svg110 state={state} />,
+    },
+    {
+      title: "111",
+      filename: "svg-hub-111",
+      component: <Svg111 state={state} />,
     },
   ];
 
