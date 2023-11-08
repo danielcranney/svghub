@@ -1090,7 +1090,7 @@ export default function Home() {
         background:
           currentTheme == "light"
             ? `rgba(${hexToRgb(state.brand)}, 0.15)`
-            : `rgba(${hexToRgb(state.brand)}, 0.15)`,
+            : `rgba(${hexToRgb(state.darkest)}, 1)`,
       }}
     >
       <Head>
@@ -1344,7 +1344,13 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <div className="bg-white rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10">
+            <div
+              style={{
+                backgroundColor:
+                  currentTheme == "light" ? state.lightest : state.darkest,
+              }}
+              className="rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10"
+            >
               <div className="flex w-full lg:w-2/5 flex-col gap-y-4">
                 <div
                   style={{ background: state.brand, color: state.darkest }}
@@ -1418,16 +1424,13 @@ export default function Home() {
             <div
               style={{
                 background:
-                  currentTheme == "light" ? state.lightest : "state.darkest",
+                  currentTheme == "light" ? state.lightest : state.darkest,
               }}
               className="flex w-full rounded-lg overflow-visible shadow-lg shadow-darkest/[15%]"
             >
               <article
                 style={{
-                  background:
-                    currentTheme == "light"
-                      ? state.lightest
-                      : `rgba(${hexToRgb(state.brand)}, 0.1)`,
+                  background: currentTheme == "light" ? state.lightest : ``,
                 }}
                 className="box w-full rounded-lg px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
               >
