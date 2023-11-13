@@ -175,215 +175,256 @@ export default function Home() {
       title: "001",
       filename: "svghub-001",
       component: <Svg001 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "002",
       filename: "svghub-002",
       component: <Svg002 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "003",
       filename: "svghub-003",
       component: <Svg003 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "004",
       filename: "svghub-004",
       component: <Svg004 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "005",
       filename: "svghub-005",
       component: <Svg005 state={state} />,
+      category: ["shapes"],
     },
 
     {
       title: "006",
       filename: "svghub-006",
       component: <Svg006 state={state} />,
+      category: ["shapes", "scribbles"],
     },
     {
       title: "007",
       filename: "svghub-007",
       component: <Svg007 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "008",
       filename: "svghub-008",
       component: <Svg008 state={state} />,
+      category: ["shapes", "scribbles"],
     },
     {
       title: "009",
       filename: "svghub-009",
       component: <Svg009 state={state} />,
+      category: ["scribbles", "borders"],
     },
-
     {
       title: "010",
       filename: "svghub-010",
       component: <Svg010 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "011",
       filename: "svghub-011",
       component: <Svg011 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "012",
       filename: "svghub-012",
       component: <Svg012 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "013",
       filename: "svg-hub-013",
       component: <Svg013 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "014",
       filename: "svg-hub-014",
       component: <Svg014 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "015",
       filename: "svg-hub-015",
       component: <Svg015 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "016",
       filename: "svg-hub-016",
       component: <Svg016 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "017",
       filename: "svg-hub-017",
       component: <Svg017 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "018",
       filename: "svg-hub-018",
       component: <Svg018 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "019",
       filename: "svg-hub-019",
       component: <Svg019 state={state} />,
+      category: ["shapes"],
     },
 
     {
       title: "021",
       filename: "svg-hub-021",
       component: <Svg021 state={state} />,
+      category: ["arrows"],
     },
     {
-      title: "021",
+      title: "022",
       filename: "svg-hub-022",
       component: <Svg022 state={state} />,
+      category: ["lines"],
     },
     {
       title: "023",
       filename: "svg-hub-023",
       component: <Svg023 state={state} />,
+      category: ["lines"],
     },
     {
-      title: "023",
+      title: "024",
       filename: "svg-hub-024",
       component: <Svg024 state={state} />,
+      category: ["lines"],
     },
     {
       title: "025",
       filename: "svg-hub-025",
       component: <Svg025 state={state} />,
+      category: ["lines"],
     },
     {
       title: "026",
       filename: "svg-hub-026",
       component: <Svg026 state={state} />,
+      category: ["lines"],
     },
     {
       title: "027",
       filename: "svg-hub-027",
       component: <Svg027 state={state} />,
+      category: ["lines"],
     },
     {
       title: "028",
       filename: "svg-hub-028",
       component: <Svg028 state={state} />,
+      category: ["lines"],
     },
     {
       title: "029",
       filename: "svg-hub-029",
       component: <Svg029 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "030",
       filename: "svg-hub-030",
       component: <Svg030 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "031",
       filename: "svg-hub-031",
       component: <Svg031 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "032",
       filename: "svg-hub-032",
       component: <Svg032 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "033",
       filename: "svg-hub-033",
       component: <Svg033 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "034",
       filename: "svg-hub-034",
       component: <Svg034 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "035",
       filename: "svg-hub-035",
       component: <Svg035 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "036",
       filename: "svg-hub-036",
       component: <Svg036 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "037",
       filename: "svg-hub-037",
       component: <Svg037 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "038",
       filename: "svg-hub-038",
       component: <Svg038 state={state} />,
+      category: ["borders", "scribbles"],
     },
     {
       title: "039",
       filename: "svg-hub-039",
       component: <Svg039 state={state} />,
+      category: ["shapes"],
     },
 
     {
       title: "040",
       filename: "svg-hub-040",
       component: <Svg040 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "041",
       filename: "svg-hub-041",
       component: <Svg041 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "042",
       filename: "svg-hub-042",
       component: <Svg042 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "043",
       filename: "svg-hub-043",
       component: <Svg043 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "044",
@@ -394,339 +435,425 @@ export default function Home() {
       title: "045",
       filename: "svg-hub-045",
       component: <Svg045 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "046",
       filename: "svg-hub-046",
       component: <Svg046 state={state} />,
+      category: ["lines"],
     },
     {
       title: "047",
       filename: "svg-hub-047",
       component: <Svg047 state={state} />,
+      category: ["lines"],
     },
     {
       title: "048",
       filename: "svg-hub-048",
       component: <Svg048 state={state} />,
+      category: ["lines"],
     },
     {
       title: "049",
       filename: "svg-hub-049",
       component: <Svg049 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "050",
       filename: "svg-hub-050",
       component: <Svg050 state={state} />,
+      category: ["landscapes"],
     },
     {
       title: "051",
       filename: "svg-hub-051",
       component: <Svg051 state={state} />,
+      category: ["landscapes"],
     },
     {
       title: "052",
       filename: "svg-hub-052",
       component: <Svg052 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "053",
       filename: "svg-hub-053",
       component: <Svg053 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "054",
       filename: "svg-hub-054",
       component: <Svg054 state={state} />,
+      category: ["borders"],
     },
     {
       title: "055",
       filename: "svg-hub-055",
       component: <Svg055 state={state} />,
+      category: ["borders"],
     },
     {
       title: "056",
       filename: "svg-hub-056",
       component: <Svg056 state={state} />,
+      category: ["borders", "lines"],
     },
     {
       title: "057",
       filename: "svg-hub-057",
       component: <Svg057 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "058",
       filename: "svg-hub-058",
       component: <Svg058 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "059",
       filename: "svg-hub-059",
       component: <Svg059 state={state} />,
+      category: ["shapes"],
     },
 
     {
       title: "060",
       filename: "svg-hub-060",
       component: <Svg060 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "061",
       filename: "svg-hub-061",
       component: <Svg061 state={state} />,
+      category: ["scribbles", "lines"],
     },
     {
       title: "062",
       filename: "svg-hub-062",
       component: <Svg062 state={state} />,
+      category: ["scribbles", "lines"],
     },
     {
       title: "063",
       filename: "svg-hub-063",
       component: <Svg063 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "064",
       filename: "svg-hub-064",
       component: <Svg064 state={state} />,
+      category: ["scribbles"],
     },
     {
       title: "065",
       filename: "svg-hub-065",
       component: <Svg065 state={state} />,
+      category: ["shapes"],
     },
     {
       title: "066",
       filename: "svg-hub-066",
       component: <Svg066 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "067",
       filename: "svg-hub-067",
       component: <Svg067 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "068",
       filename: "svg-hub-068",
       component: <Svg068 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "069",
       filename: "svg-hub-069",
       component: <Svg069 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "070",
       filename: "svg-hub-070",
       component: <Svg070 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "071",
       filename: "svg-hub-071",
       component: <Svg071 state={state} />,
+      category: ["arrows", "technology"],
     },
     {
       title: "072",
       filename: "svg-hub-072",
       component: <Svg072 state={state} />,
+      category: ["arrows", "technology"],
     },
     {
       title: "073",
       filename: "svg-hub-073",
       component: <Svg073 state={state} />,
+      category: ["arrows", "technology"],
     },
     {
       title: "074",
       filename: "svg-hub-074",
       component: <Svg074 state={state} />,
+      category: ["technology"],
     },
     {
       title: "075",
       filename: "svg-hub-075",
       component: <Svg075 state={state} />,
+      category: ["technology"],
     },
     {
       title: "076",
       filename: "svg-hub-076",
       component: <Svg076 state={state} />,
+      category: ["arrows", "animated"],
     },
     {
       title: "077",
       filename: "svg-hub-077",
       component: <Svg077 state={state} />,
+      category: ["loading", "animated"],
     },
     {
       title: "078",
       filename: "svg-hub-078",
       component: <Svg078 state={state} />,
+      category: ["loading", "animated"],
     },
     {
       title: "079",
       filename: "svg-hub-079",
       component: <Svg079 state={state} />,
+      category: ["symbols"],
     },
     {
       title: "080",
       filename: "svg-hub-080",
       component: <Svg080 state={state} />,
+      category: ["symbols"],
     },
     {
       title: "081",
       filename: "svg-hub-081",
       component: <Svg081 state={state} />,
+      category: ["symbols"],
     },
     {
       title: "082",
       filename: "svg-hub-082",
       component: <Svg082 state={state} />,
+      category: ["objects"],
     },
     {
       title: "083",
       filename: "svg-hub-083",
       component: <Svg083 state={state} />,
+      category: ["objects"],
     },
     {
       title: "084",
       filename: "svg-hub-084",
       component: <Svg084 state={state} />,
+      category: ["objects"],
     },
     {
       title: "085",
       filename: "svg-hub-085",
       component: <Svg085 state={state} />,
+      category: ["objects"],
     },
     {
       title: "086",
       filename: "svg-hub-086",
       component: <Svg086 state={state} />,
+      category: ["people"],
     },
     {
       title: "087",
       filename: "svg-hub-087",
       component: <Svg087 state={state} />,
+      category: ["symbols", "maths"],
     },
     {
       title: "088",
       filename: "svg-hub-088",
       component: <Svg088 state={state} />,
+      category: ["objects", "weather"],
     },
     {
       title: "089",
       filename: "svg-hub-089",
       component: <Svg089 state={state} />,
+      category: ["objects", "weather"],
     },
     {
       title: "090",
       filename: "svg-hub-090",
       component: <Svg090 state={state} />,
+      category: ["objects", "weather"],
     },
     {
       title: "091",
       filename: "svg-hub-091",
       component: <Svg091 state={state} />,
+      category: ["objects", "weather"],
     },
     {
       title: "092",
       filename: "svg-hub-092",
       component: <Svg092 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "093",
       filename: "svg-hub-093",
       component: <Svg093 state={state} />,
+      category: ["lines"],
     },
     {
       title: "094",
       filename: "svg-hub-094",
       component: <Svg094 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "095",
       filename: "svg-hub-095",
       component: <Svg095 state={state} />,
+      category: ["arrows"],
     },
     {
       title: "096",
       filename: "svg-hub-096",
       component: <Svg096 state={state} />,
+      category: ["objects"],
     },
     {
       title: "097",
       filename: "svg-hub-097",
       component: <Svg097 state={state} />,
+      category: ["objects", "gaming"],
     },
     {
       title: "098",
       filename: "svg-hub-098",
       component: <Svg098 state={state} />,
+      category: ["smybols"],
     },
     {
       title: "099",
       filename: "svg-hub-099",
       component: <Svg099 state={state} />,
+      category: ["objects"],
     },
     {
       title: "100",
       filename: "svg-hub-100",
       component: <Svg100 state={state} />,
+      category: ["technology"],
     },
     {
       title: "101",
       filename: "svg-hub-101",
       component: <Svg101 state={state} />,
+      category: ["technology"],
     },
     {
       title: "102",
       filename: "svg-hub-102",
       component: <Svg102 state={state} />,
+      category: ["technology"],
     },
     {
       title: "103",
       filename: "svg-hub-103",
       component: <Svg103 state={state} />,
+      category: ["technology"],
     },
     {
       title: "104",
       filename: "svg-hub-104",
       component: <Svg104 state={state} />,
+      category: ["scribbles", "lines"],
     },
     {
       title: "105",
       filename: "svg-hub-105",
       component: <Svg105 state={state} />,
+      category: ["scribbles", "lines"],
     },
     {
       title: "106",
       filename: "svg-hub-106",
       component: <Svg106 state={state} />,
+      category: ["objects"],
     },
     {
       title: "107",
       filename: "svg-hub-107",
       component: <Svg107 state={state} />,
+      category: ["objects"],
     },
     {
       title: "108",
       filename: "svg-hub-108",
       component: <Svg108 state={state} />,
+      category: ["objects", "weather"],
     },
     {
       title: "109",
       filename: "svg-hub-109",
       component: <Svg109 state={state} />,
+      category: ["scribbles", "lines"],
     },
     {
       title: "110",
       filename: "svg-hub-110",
       component: <Svg110 state={state} />,
+      category: ["lines", "scribbles"],
     },
     {
       title: "111",
       filename: "svg-hub-111",
       component: <Svg111 state={state} />,
+      category: ["lines", "scribbles"],
     },
   ];
+
+  function generateCategories(data) {
+    const categories = [];
+
+    data.forEach((icon) => {
+      if (icon.category && Array.isArray(icon.category)) {
+        icon.category.forEach((category) => {
+          if (!categories.includes(category)) {
+            categories.push(category);
+          }
+        });
+      }
+    });
+
+    return categories;
+  }
+
+  const iconCategories = generateCategories(svgData);
+  console.log("Icon Categories:", iconCategories);
 
   const colorBlockNode = useRef();
   const colorSelectorNode = useRef();
