@@ -153,11 +153,11 @@ export default function Home() {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [state, setState] = useState({
-    brand: "#DB3F29",
-    darkest: "#03081B",
-    dark: "#212B50",
-    mid: "#D7A449",
-    light: "#E8E2D8",
+    brand: "#77CBB9",
+    darkest: "#252634",
+    dark: "#4e4f66",
+    mid: "#A5A6BC",
+    light: "#d6d6e9",
     lightest: "#FFFFFF",
   });
   const [showingDropdown, setShowingDropdown] = useState("");
