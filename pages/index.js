@@ -833,10 +833,27 @@ export default function Home() {
   const [showCopyModal, setShowCopyModal] = useState("");
   const [loadingCopy, setLoadingCopy] = useState(false);
   const [mounted, setMounted] = useState(false);
-
+  const [selectedFilters, setSelectedFilters] = useState(["all"]);
   const [allPalettes, setAllPalettes] = useState(null);
-
   const { data: paletteData, error } = useSWR("/api/get-all-palettes", fetcher);
+
+  const handleFilterClick = (category) => {
+    // Toggle the "all" filter when clicked
+    if (category === "all") {
+      setSelectedFilters(["all"]);
+    } else {
+      // Check if the category is already selected
+      if (selectedFilters.includes(category)) {
+        // Remove the category if already selected
+        setSelectedFilters(
+          selectedFilters.filter((filter) => filter !== category)
+        );
+      } else {
+        // Add the category if not selected
+        setSelectedFilters(["all", ...selectedFilters, category]);
+      }
+    }
+  };
 
   function generateCategories(data) {
     const categories = [];
@@ -855,13 +872,6 @@ export default function Home() {
   }
 
   const iconCategories = generateCategories(SVG_DATA);
-
-  const updateDisplayedSvgs = () => {
-    const filteredSvgs = selectedCategory
-      ? SVG_DATA.filter((item) => item.category.includes(selectedCategory))
-      : SVG_DATA;
-    setSvgsToDisplay(filteredSvgs);
-  };
 
   const colorBlockNode = useRef();
   const colorSelectorNode = useRef();
@@ -1049,7 +1059,13 @@ export default function Home() {
 
     return (
       <>
-        {SVG_DATA.map((item, index) => (
+        {SVG_DATA.filter((item) => {
+          return (
+            selectedFilters.includes("all") ||
+            (item.category &&
+              selectedFilters.some((filter) => item.category.includes(filter)))
+          );
+        }).map((item, index) => (
           <div
             key={item + index}
             className="svg-item-box box relative gap-y-1 min-h-72"
@@ -1065,7 +1081,7 @@ export default function Home() {
               className="flex mx-auto items-center pt-4 border-t mt-3 gap-x-2 w-full justify-center"
             >
               <button
-                className="flex btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
+                className="btn-xs bg-light text-dark hover:text-darkest group gap-x-1"
                 onClick={(e) => {
                   handleCopyClick(e);
                   setShowCopyModal(true);
@@ -1349,44 +1365,60 @@ export default function Home() {
           </section>
         </div>
 
-        <section className="sidebar-and-icons flex w-full gap-0 container">
-          <div className="flex w-full bg-white dark:bg-white/[4%]">
-            <div className="w-1/4 sticky top-6 bottom-6 h-full p-5 flex flex-col rounded-xl shadow-lg shadow-[#000000/5] self-start">
+        <section className="sidebar-and-icons flex w-full gap-0 container mx-auto">
+          <div className="flex w-full bg-white dark:bg-white/[4%] overflow-hidden rounded-xl">
+            <div
+              className="w-1/4 sticky top-6 bottom-6 h-full p-5 flex flex-col shadow-lg shadow-[#000000/5] self-start lg:border-r"
+              style={{
+                borderColor: currentTheme == "light" ? state.light : state.dark,
+              }}
+            >
               <h3 className="flex font-bold tracking-wide uppercase text-sm mb-3">
                 Categories
               </h3>
               <ul className="flex flex-col">
-                {iconCategories.map((category) => {
-                  return (
-                    <li
-                      style={{
-                        color:
-                          currentTheme == "light" ? state.darkest : state.light,
-                      }}
-                      className="text-sm opacity-70 hover:opacity-100 py-1.5 cursor-pointer hover:bg-zinc-900/[3%] hover:px-2 rounded-lg transition-all duration-150 ease-in-out"
-                    >
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
-                    </li>
-                  );
-                })}
+                {["all", ...iconCategories].map((category) => (
+                  <li
+                    style={{
+                      color:
+                        currentTheme == "light" ? state.darkest : state.light,
+                    }}
+                    className={`text-sm opacity-70 hover:opacity-100 py-1.5 cursor-pointer hover:bg-zinc-900/[3%] hover:px-2 rounded-lg transition-all duration-150 ease-in-out ${
+                      selectedFilters.includes(category) ? "bg-zinc-900" : ""
+                    }`}
+                    onClick={() => handleFilterClick(category)}
+                  >
+                    {category === "all"
+                      ? "All"
+                      : category.charAt(0).toUpperCase() + category.slice(1)}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <article className="w-3/4 flex flex-col gap-8">
+            <article className="w-3/4 flex flex-col">
               {/* ----- CUSTOMISER ----- */}
-              <aside className="sticky top-0 h-auto lg:h-[5rem] w-[calc(100%)] mx-auto z-40">
+              <aside
+                className="sticky top-0 h-auto lg:h-[4.75rem] w-[calc(100%)] mx-auto z-40 border-b"
+                style={{
+                  borderColor:
+                    currentTheme == "light" ? state.light : state.dark,
+                }}
+              >
                 <div
                   style={{
                     background:
                       currentTheme == "light" ? state.lightest : state.darkest,
                   }}
-                  className="flex w-full rounded-lg overflow-visible shadow-lg shadow-[#000000/7]"
+                  className="flex w-full overflow-visible shadow-lg shadow-[#000000/7]"
                 >
                   <article
                     style={{
                       background: currentTheme == "light" ? state.lightest : ``,
+                      borderColor:
+                        currentTheme == "light" ? state.light : state.dark,
                     }}
-                    className="box w-full rounded-lg px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
+                    className="box w-full px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6 lg:border-b"
                   >
                     <article className="w-full lg:w-1/2 flex flex-row items-center gap-3 h-full justify-start">
                       <p className="flex font-semibold opacity-80 uppercase tracking-wider text-xs">
@@ -1656,8 +1688,14 @@ export default function Home() {
               {/* ----- MAIN SECTION ----- */}
               <div className="content w-[calc(94%)] lg:w-full mx-auto">
                 <div className="flex flex-col">
-                  {/* Scollbar */}
-                  <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                  {/* Container Display */}
+                  <div
+                    className="grid grid-cols-2 lg:grid-cols-5 gap-px"
+                    style={{
+                      backgroundColor:
+                        currentTheme == "light" ? state.light : state.darkest,
+                    }}
+                  >
                     {SvgContainer()}
                   </div>
                 </div>
