@@ -1,14 +1,4 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import useSWR from "swr";
-import ReactDOMServer from "react-dom/server";
-import ClipboardJS from "clipboard";
-import { useTheme } from "next-themes";
-
-import { Header } from "../components/structure/Header";
-import { Footer } from "../components/structure/Footer";
 
 import { Svg001 } from "../components/svgs/Svg001";
 import { Svg002 } from "../components/svgs/Svg002";
@@ -123,6 +113,17 @@ import { Svg109 } from "../components/svgs/Svg109";
 import { Svg110 } from "../components/svgs/Svg110";
 import { Svg111 } from "../components/svgs/Svg111";
 
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import useSWR from "swr";
+import ReactDOMServer from "react-dom/server";
+import ClipboardJS from "clipboard";
+import { useTheme } from "next-themes";
+
+import { Header } from "../components/structure/Header";
+import { Footer } from "../components/structure/Footer";
+
 import ColorBlock from "../components/color-selector/ColorBlock";
 import ColorSelector from "../components/color-selector/ColorSelector";
 import CustomDropdown from "../components/theme-selector/CustomDropdown";
@@ -160,17 +161,8 @@ export default function Home() {
     light: "#d6d6e9",
     lightest: "#FFFFFF",
   });
-  const [showingDropdown, setShowingDropdown] = useState("");
-  const [showDownloadModal, setShowDownloadModal] = useState("");
-  const [showCopyModal, setShowCopyModal] = useState("");
-  const [loadingCopy, setLoadingCopy] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  const [allPalettes, setAllPalettes] = useState(null);
-
-  const { data: paletteData, error } = useSWR("/api/get-all-palettes", fetcher);
-
-  const svgData = [
+  const SVG_DATA = [
     {
       title: "001",
       filename: "svghub-001",
@@ -836,6 +828,16 @@ export default function Home() {
     },
   ];
 
+  const [showingDropdown, setShowingDropdown] = useState("");
+  const [showDownloadModal, setShowDownloadModal] = useState("");
+  const [showCopyModal, setShowCopyModal] = useState("");
+  const [loadingCopy, setLoadingCopy] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  const [allPalettes, setAllPalettes] = useState(null);
+
+  const { data: paletteData, error } = useSWR("/api/get-all-palettes", fetcher);
+
   function generateCategories(data) {
     const categories = [];
 
@@ -852,8 +854,14 @@ export default function Home() {
     return categories;
   }
 
-  const iconCategories = generateCategories(svgData);
-  console.log("Icon Categories:", iconCategories);
+  const iconCategories = generateCategories(SVG_DATA);
+
+  const updateDisplayedSvgs = () => {
+    const filteredSvgs = selectedCategory
+      ? SVG_DATA.filter((item) => item.category.includes(selectedCategory))
+      : SVG_DATA;
+    setSvgsToDisplay(filteredSvgs);
+  };
 
   const colorBlockNode = useRef();
   const colorSelectorNode = useRef();
@@ -932,7 +940,7 @@ export default function Home() {
           onClick={handleHoveredCopyClick}
           className="hidden group-hover:flex absolute h-full w-full bg-darkest/20 items-center justify-center rounded-lg cursor-pointer top-0 left-0"
         >
-          <div className="flex bg-white rounded-lg text-sm uppercase font-medium text-mid px-1.5 py-1 shadow-lg shadow-darkest/20">
+          <div className="flex bg-white rounded-lg text-sm uppercase font-medium text-mid px-1.5 py-1 shadow-lg shadow-[#000000/7]">
             {loadingCopy ? (
               "Loading"
             ) : (
@@ -986,7 +994,7 @@ export default function Home() {
     }, []);
 
     const getRandomIndex = (currentIndex) => {
-      const svgCount = svgData.length;
+      const svgCount = SVG_DATA.length;
       let randomIndex = Math.floor(Math.random() * svgCount);
 
       // Keep generating a new random index until it's different from the current index
@@ -1001,7 +1009,7 @@ export default function Home() {
       if (currentSvgIndex !== null) {
         return (
           <>
-            {svgData.map((item, index) => {
+            {SVG_DATA.map((item, index) => {
               if (index !== 53) {
                 return (
                   <div
@@ -1041,7 +1049,7 @@ export default function Home() {
 
     return (
       <>
-        {svgData.map((item, index) => (
+        {SVG_DATA.map((item, index) => (
           <div
             key={item + index}
             className="svg-item-box box relative gap-y-1 min-h-72"
@@ -1301,538 +1309,360 @@ export default function Home() {
 
       <Header state={state} />
 
-      <main className="container mx-auto z-20 w-full">
-        <section id="landing-page">
-          <section className="relative flex-col md:flex-row rounded-2xl flex lg:container gap-y-4 mx-auto h-auto md:h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
-            <article className="flex flex-col text-center md:text-left w-full md:w-[calc(100%-270px)] lg:w-[calc(100%-400px)] justify-center gap-y-4 h-[calc(50vh)] md:h-auto">
-              <h1 className="leading-tight text-dark">
-                <span
-                // style={{
-                //   backgroundImage: "url(/svgs/squiggle.svg)",
-                // }}
-                >
-                  Squiggles
-                </span>
-                , scribbles, shapes and... other stuff.
-              </h1>
-              <p className="text-xl text-darkest/60">
-                A library of over 70 custom-color elements ready to paste into
-                your project.
-              </p>
-            </article>
+      <main className="mx-auto z-20 w-full">
+        {/* ------ TOP SECTION ------ */}
+        <div className="top-section-wrapper container mx-auto">
+          <section id="landing-page">
+            <section className="relative flex-col md:flex-row rounded-2xl flex lg:container gap-y-4 mx-auto h-auto md:h-[calc(100vh_-_8rem)] items-center justify-center text-center w-full">
+              <article className="flex flex-col text-center md:text-left w-full md:w-[calc(100%-270px)] lg:w-[calc(100%-400px)] justify-center gap-y-4 h-[calc(50vh)] md:h-auto">
+                <h1 className="leading-tight text-dark">
+                  <span
+                  // style={{
+                  //   backgroundImage: "url(/svgs/squiggle.svg)",
+                  // }}
+                  >
+                    Squiggles
+                  </span>
+                  , scribbles, shapes and... other stuff.
+                </h1>
+                <p className="text-xl text-darkest/60">
+                  A library of over 70 custom-color elements ready to paste into
+                  your project.
+                </p>
+              </article>
 
-            <article className="flex aspect-square md:aspect-auto w-[300px] h-[300px] md:w-[270px] md:h-[270px] lg:w-[400px] lg:h-[400px] relative items-start">
-              <div
-                className="flex w-[82%] h-[82%] mx-auto my-auto"
-                style={{ animation: "bobbleAndRotate 3s infinite" }}
-              >
-                <LandingSvgRotator />
-              </div>
-              <div
-                className="absolute top-0 left-0 w-[100%] h-[100%] z-50 block items-center"
-                style={{ animation: "bobble 2.5s infinite" }}
-              >
-                <Svg055 state={state} />
-              </div>
-            </article>
+              <article className="flex aspect-square md:aspect-auto w-[300px] h-[300px] md:w-[270px] md:h-[270px] lg:w-[400px] lg:h-[400px] relative items-start">
+                <div
+                  className="flex w-[82%] h-[82%] mx-auto my-auto"
+                  style={{ animation: "bobbleAndRotate 3s infinite" }}
+                >
+                  <LandingSvgRotator />
+                </div>
+                <div
+                  className="absolute top-0 left-0 w-[100%] h-[100%] z-50 block items-center"
+                  style={{ animation: "bobble 2.5s infinite" }}
+                >
+                  <Svg055 state={state} />
+                </div>
+              </article>
+            </section>
           </section>
-        </section>
+        </div>
 
-        <section className="flex flex-col w-full pb-20 relative mt-16 lg:mt-0">
-          <article
-            className={`${showCopyModal ? "" : "hidden"}
-          flex flex-col w-full h-full bg-darkest/80 fixed left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-50 shadow-xl shadow-darkest/30 items-center justify-center`}
-          >
-            <div className="flex w-[calc(85%)] lg:w-3/5 mx-auto mb-2">
-              <button
-                onClick={handleCloseCopyModal}
-                style={{ background: state.brand, color: state.darkest }}
-                className="ml-auto w-10 h-10 flex items-center justify-center rounded-lg shadow-xl shadow-darkest/20"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 icon icon-tabler icon-tabler-x"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M18 6l-12 12"></path>
-                  <path d="M6 6l12 12"></path>
-                </svg>
-              </button>
+        <section className="sidebar-and-icons flex w-full gap-0 container">
+          <div className="flex w-full bg-white dark:bg-white/[4%]">
+            <div className="w-1/4 sticky top-6 bottom-6 h-full p-5 flex flex-col rounded-xl shadow-lg shadow-[#000000/5] self-start">
+              <h3 className="flex font-bold tracking-wide uppercase text-sm mb-3">
+                Categories
+              </h3>
+              <ul className="flex flex-col">
+                {iconCategories.map((category) => {
+                  return (
+                    <li
+                      style={{
+                        color:
+                          currentTheme == "light" ? state.darkest : state.light,
+                      }}
+                      className="text-sm opacity-70 hover:opacity-100 py-1.5 cursor-pointer hover:bg-zinc-900/[3%] hover:px-2 rounded-lg transition-all duration-150 ease-in-out"
+                    >
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <div
-              style={{
-                background:
-                  currentTheme == "light" ? state.lightest : state.darkest,
-              }}
-              className="rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10"
-            >
-              <div className="flex w-full lg:w-2/5 flex-col gap-y-4 w-ful">
+
+            <article className="w-3/4 flex flex-col gap-8">
+              {/* ----- CUSTOMISER ----- */}
+              <aside className="sticky top-0 h-auto lg:h-[5rem] w-[calc(100%)] mx-auto z-40">
                 <div
-                  style={{ background: state.brand, color: state.darkest }}
-                  className="flex w-16 h-16 rounded-full items-center justify-center"
+                  style={{
+                    background:
+                      currentTheme == "light" ? state.lightest : state.darkest,
+                  }}
+                  className="flex w-full rounded-lg overflow-visible shadow-lg shadow-[#000000/7]"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 icon icon-tabler icon-tabler-clipboard-check"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <article
+                    style={{
+                      background: currentTheme == "light" ? state.lightest : ``,
+                    }}
+                    className="box w-full rounded-lg px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
-                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
-                    <path d="M9 14l2 2l4 -4"></path>
-                  </svg>
-                </div>
-                <h3>Copied to Clipboard</h3>
-                <p>
-                  Your SVG can be used freely on{" "}
-                  <strong>personal or commercial projects</strong>.
-                </p>
-                <p>
-                  <a href="https://github.com/sponsors/danielcranney">
-                    Please consider sponsoring me
-                  </a>{" "}
-                  with $5 or more to support my work.
-                </p>
-                <a
-                  href="http://www.twitter.com/danielcranney"
-                  rel="noreferrer"
-                  className="btn-md self-start shadow-lg shadow-dark/5 text-darkest/80 gap-x-1"
-                  style={{ background: state.brand }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-                  </svg>
-                  Sponsor me
-                </a>
-              </div>
-              <div
-                style={{ background: state.dark }}
-                className="hidden lg:flex w-full lg:w-3/5 h-96 overflow-hidden relative"
-              >
-                <div className="absolute -top-12 left-10 scale-[170%] rotate-6 w-full h-full overflow-hidden">
-                  <Svg057 state={state} />
-                </div>
-              </div>
-            </div>
-          </article>
+                    <article className="w-full lg:w-1/2 flex flex-row items-center gap-3 h-full justify-start">
+                      <p className="flex font-semibold opacity-80 uppercase tracking-wider text-xs">
+                        Preset
+                      </p>
 
-          <article
-            className={`${showDownloadModal ? "" : "hidden"}
-          flex flex-col w-full h-full bg-darkest/80 fixed left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-50 shadow-xl shadow-darkest/30 items-center justify-center`}
-          >
-            <div className="flex w-[calc(85%)] lg:w-3/5 mx-auto mb-2">
-              <button
-                onClick={handleCloseDownloadModal}
-                style={{ background: state.brand, color: state.darkest }}
-                className="ml-auto w-10 h-10 flex items-center justify-center rounded-lg shadow-xl shadow-darkest/20"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 icon icon-tabler icon-tabler-x"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M18 6l-12 12"></path>
-                  <path d="M6 6l12 12"></path>
-                </svg>
-              </button>
-            </div>
-            <div
-              style={{
-                backgroundColor:
-                  currentTheme == "light" ? state.lightest : state.darkest,
-              }}
-              className="rounded-xl p-8 w-[calc(85%)] lg:w-3/5 flex items-center justify-center gap-x-10"
-            >
-              <div className="flex w-full lg:w-2/5 flex-col gap-y-4">
-                <div
-                  style={{ background: state.brand, color: state.darkest }}
-                  className="flex w-16 h-16 rounded-full items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 icon icon-tabler icon-tabler-download"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
-                    <path d="M7 11l5 5l5 -5"></path>
-                    <path d="M12 4l0 12"></path>
-                  </svg>
-                </div>
-                <h3>Download Started...</h3>
-                <p>
-                  Your SVG can be used freely on{" "}
-                  <strong>personal or commercial projects</strong>.
-                </p>
-                <p>
-                  <a href="https://github.com/sponsors/danielcranney">
-                    Please consider sponsoring me
-                  </a>{" "}
-                  with $5 or more to support my work.
-                </p>
-                <a
-                  href="http://www.twitter.com/danielcranney"
-                  rel="noreferrer"
-                  className="btn-md self-start shadow-lg shadow-dark/5 text-darkest/80 gap-x-1"
-                  style={{ background: state.brand }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 icon icon-tabler icon-tabler-brand-github"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-                  </svg>
-                  Sponsor me
-                </a>
-              </div>
-              <div
-                style={{ background: state.dark }}
-                className="hidden lg:w-3/5 h-96 lg:flex overflow-hidden relative"
-              >
-                <div className="absolute -top-12 left-10 scale-[170%] rotate-6 w-full h-full overflow-hidden">
-                  <Svg048 state={state} />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <aside className="sticky top-0 h-auto lg:h-[5.625rem] w-[calc(100%)] lg:w-[calc(92%)] mx-auto z-40">
-            <div
-              style={{
-                background:
-                  currentTheme == "light" ? state.lightest : state.darkest,
-              }}
-              className="flex w-full rounded-lg overflow-visible shadow-lg shadow-darkest/[15%]"
-            >
-              <article
-                style={{
-                  background: currentTheme == "light" ? state.lightest : ``,
-                }}
-                className="box w-full rounded-lg px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
-              >
-                <article className="w-full lg:w-1/2 flex flex-row items-center gap-3 h-full justify-start">
-                  <p className="flex font-semibold opacity-80 uppercase tracking-wider text-xs">
-                    Preset
-                  </p>
-
-                  <CustomDropdown
-                    state={state}
-                    setState={setState}
-                    options={allPalettes.map((item) => ({
-                      label: item.paletteName,
-                      value: JSON.stringify(item),
-                    }))}
-                  />
-                </article>
-
-                <article className="w-full lg:w-1/2 buttons-wrapper flex gap-x-3 items-center justify-start lg:justify-end">
-                  <p className="flex font-semibold text-dark dark:text-lightest opacity-80 uppercase tracking-wider text-xs">
-                    Edit Palette
-                  </p>
-                  <div className="flex relative gap-x-1">
-                    {/* One */}
-                    <article className="flex" ref={colorBlockNode}>
-                      <ColorBlock
-                        colorCategory={"brand"}
+                      <CustomDropdown
                         state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
+                        setState={setState}
+                        options={allPalettes.map((item) => ({
+                          label: item.paletteName,
+                          value: JSON.stringify(item),
+                        }))}
                       />
                     </article>
-                    {showingDropdown == "brand" ? (
-                      <div
-                        style={{
-                          background:
-                            currentTheme == "light"
-                              ? state.lightest
-                              : state.darkest,
-                        }}
-                        className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                      >
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                          }}
-                          className="flex w-full h-full"
-                        >
-                          <ColorSelector
+
+                    <article className="w-full lg:w-1/2 buttons-wrapper flex gap-x-3 items-center justify-start lg:justify-end">
+                      <p className="flex font-semibold text-dark dark:text-lightest opacity-80 uppercase tracking-wider text-xs">
+                        Edit Palette
+                      </p>
+                      <div className="flex relative gap-x-1">
+                        {/* One */}
+                        <article className="flex" ref={colorBlockNode}>
+                          <ColorBlock
                             colorCategory={"brand"}
                             state={state}
-                            setState={setState}
-                            key={"brand"}
-                            ref={colorSelectorNode}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
                           />
-                        </div>
+                        </article>
+                        {showingDropdown == "brand" ? (
+                          <div
+                            style={{
+                              background:
+                                currentTheme == "light"
+                                  ? state.lightest
+                                  : state.darkest,
+                            }}
+                            className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                          >
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                    : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                              }}
+                              className="flex w-full h-full"
+                            >
+                              <ColorSelector
+                                colorCategory={"brand"}
+                                state={state}
+                                setState={setState}
+                                key={"brand"}
+                                ref={colorSelectorNode}
+                              />
+                            </div>
+                          </div>
+                        ) : null}
+
+                        {/* Two */}
+                        <article className="flex">
+                          <ColorBlock
+                            colorCategory={"darkest"}
+                            state={state}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
+                          />
+                          {showingDropdown == "darkest" ? (
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? state.lightest
+                                    : state.darkest,
+                              }}
+                              className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                            >
+                              <div
+                                style={{
+                                  background:
+                                    currentTheme == "light"
+                                      ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                                }}
+                                className="p-3 flex w-full h-full"
+                              >
+                                <ColorSelector
+                                  colorCategory={"darkest"}
+                                  state={state}
+                                  setState={setState}
+                                  key={"darkest"}
+                                  ref={colorSelectorNode}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </article>
+
+                        {/* Three */}
+                        <article className="flex">
+                          <ColorBlock
+                            colorCategory={"dark"}
+                            state={state}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
+                          />
+                          {showingDropdown == "dark" ? (
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? state.lightest
+                                    : state.darkest,
+                              }}
+                              className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                            >
+                              <div
+                                style={{
+                                  background:
+                                    currentTheme == "light"
+                                      ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                                }}
+                                className="p-3 flex w-full h-full"
+                              >
+                                <ColorSelector
+                                  colorCategory={"dark"}
+                                  state={state}
+                                  setState={setState}
+                                  key={"dark"}
+                                  ref={colorSelectorNode}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </article>
+
+                        {/* Four */}
+                        <article className="flex">
+                          <ColorBlock
+                            colorCategory={"mid"}
+                            state={state}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
+                          />
+                          {showingDropdown == "mid" ? (
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? state.lightest
+                                    : state.darkest,
+                              }}
+                              className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                            >
+                              <div
+                                style={{
+                                  background:
+                                    currentTheme == "light"
+                                      ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                                }}
+                                className="p-3 flex w-full h-full"
+                              >
+                                <ColorSelector
+                                  colorCategory={"mid"}
+                                  colors={null}
+                                  state={state}
+                                  setState={setState}
+                                  key={"mid"}
+                                  num={null}
+                                  ref={colorSelectorNode}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </article>
+
+                        {/* Five */}
+                        <article className="flex">
+                          <ColorBlock
+                            colorCategory={"light"}
+                            state={state}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
+                          />
+                          {showingDropdown == "light" ? (
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? state.lightest
+                                    : state.darkest,
+                              }}
+                              className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                            >
+                              <div
+                                style={{
+                                  background:
+                                    currentTheme == "light"
+                                      ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                                }}
+                                className="p-3 flex w-full h-full"
+                              >
+                                <ColorSelector
+                                  colorCategory={"light"}
+                                  colors={null}
+                                  state={state}
+                                  setState={setState}
+                                  key={"light"}
+                                  num={null}
+                                  ref={colorSelectorNode}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </article>
+
+                        {/* Six */}
+                        <article className="flex">
+                          <ColorBlock
+                            colorCategory={"lightest"}
+                            state={state}
+                            showingDropdown={showingDropdown}
+                            setShowingDropdown={setShowingDropdown}
+                          />
+                          {showingDropdown == "lightest" ? (
+                            <div
+                              style={{
+                                background:
+                                  currentTheme == "light"
+                                    ? state.lightest
+                                    : state.darkest,
+                              }}
+                              className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-[#000000/7]"
+                            >
+                              <div
+                                style={{
+                                  background:
+                                    currentTheme == "light"
+                                      ? `rgba(${hexToRgb(state.light)}, 0.10)`
+                                      : `rgba(${hexToRgb(state.dark)}, 0.20)`,
+                                }}
+                                className="p-3 flex w-full h-full"
+                              >
+                                <ColorSelector
+                                  colorCategory={"lightest"}
+                                  colors={null}
+                                  state={state}
+                                  setState={setState}
+                                  key={"lightest"}
+                                  num={null}
+                                  ref={colorSelectorNode}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </article>
                       </div>
-                    ) : null}
-
-                    {/* Two */}
-                    <article className="flex">
-                      <ColorBlock
-                        colorCategory={"darkest"}
-                        state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
-                      />
-                      {showingDropdown == "darkest" ? (
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? state.lightest
-                                : state.darkest,
-                          }}
-                          className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                        >
-                          <div
-                            style={{
-                              background:
-                                currentTheme == "light"
-                                  ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                  : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                            }}
-                            className="p-3 flex w-full h-full"
-                          >
-                            <ColorSelector
-                              colorCategory={"darkest"}
-                              state={state}
-                              setState={setState}
-                              key={"darkest"}
-                              ref={colorSelectorNode}
-                            />
-                          </div>
-                        </div>
-                      ) : null}
                     </article>
+                  </article>
+                </div>
+              </aside>
 
-                    {/* Three */}
-                    <article className="flex">
-                      <ColorBlock
-                        colorCategory={"dark"}
-                        state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
-                      />
-                      {showingDropdown == "dark" ? (
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? state.lightest
-                                : state.darkest,
-                          }}
-                          className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                        >
-                          <div
-                            style={{
-                              background:
-                                currentTheme == "light"
-                                  ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                  : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                            }}
-                            className="p-3 flex w-full h-full"
-                          >
-                            <ColorSelector
-                              colorCategory={"dark"}
-                              state={state}
-                              setState={setState}
-                              key={"dark"}
-                              ref={colorSelectorNode}
-                            />
-                          </div>
-                        </div>
-                      ) : null}
-                    </article>
-
-                    {/* Four */}
-                    <article className="flex">
-                      <ColorBlock
-                        colorCategory={"mid"}
-                        state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
-                      />
-                      {showingDropdown == "mid" ? (
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? state.lightest
-                                : state.darkest,
-                          }}
-                          className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                        >
-                          <div
-                            style={{
-                              background:
-                                currentTheme == "light"
-                                  ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                  : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                            }}
-                            className="p-3 flex w-full h-full"
-                          >
-                            <ColorSelector
-                              colorCategory={"mid"}
-                              colors={null}
-                              state={state}
-                              setState={setState}
-                              key={"mid"}
-                              num={null}
-                              ref={colorSelectorNode}
-                            />
-                          </div>
-                        </div>
-                      ) : null}
-                    </article>
-
-                    {/* Five */}
-                    <article className="flex">
-                      <ColorBlock
-                        colorCategory={"light"}
-                        state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
-                      />
-                      {showingDropdown == "light" ? (
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? state.lightest
-                                : state.darkest,
-                          }}
-                          className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                        >
-                          <div
-                            style={{
-                              background:
-                                currentTheme == "light"
-                                  ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                  : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                            }}
-                            className="p-3 flex w-full h-full"
-                          >
-                            <ColorSelector
-                              colorCategory={"light"}
-                              colors={null}
-                              state={state}
-                              setState={setState}
-                              key={"light"}
-                              num={null}
-                              ref={colorSelectorNode}
-                            />
-                          </div>
-                        </div>
-                      ) : null}
-                    </article>
-
-                    {/* Six */}
-                    <article className="flex">
-                      <ColorBlock
-                        colorCategory={"lightest"}
-                        state={state}
-                        showingDropdown={showingDropdown}
-                        setShowingDropdown={setShowingDropdown}
-                      />
-                      {showingDropdown == "lightest" ? (
-                        <div
-                          style={{
-                            background:
-                              currentTheme == "light"
-                                ? state.lightest
-                                : state.darkest,
-                          }}
-                          className="absolute top-[4.5rem] left-0 w-56 rounded-lg shadow-lg shadow-darkest/[15%]"
-                        >
-                          <div
-                            style={{
-                              background:
-                                currentTheme == "light"
-                                  ? `rgba(${hexToRgb(state.light)}, 0.10)`
-                                  : `rgba(${hexToRgb(state.dark)}, 0.20)`,
-                            }}
-                            className="p-3 flex w-full h-full"
-                          >
-                            <ColorSelector
-                              colorCategory={"lightest"}
-                              colors={null}
-                              state={state}
-                              setState={setState}
-                              key={"lightest"}
-                              num={null}
-                              ref={colorSelectorNode}
-                            />
-                          </div>
-                        </div>
-                      ) : null}
-                    </article>
+              {/* ----- MAIN SECTION ----- */}
+              <div className="content w-[calc(94%)] lg:w-full mx-auto">
+                <div className="flex flex-col">
+                  {/* Scollbar */}
+                  <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                    {SvgContainer()}
                   </div>
-                </article>
-              </article>
-            </div>
-          </aside>
-
-          <div className="content w-[calc(94%)] lg:w-[calc(88%)] mt-2 mx-auto">
-            <div className="flex flex-col mt-8">
-              {/* Scollbar */}
-              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-                {SvgContainer()}
+                </div>
               </div>
-            </div>
+            </article>
           </div>
         </section>
       </main>
