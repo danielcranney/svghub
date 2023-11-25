@@ -1353,6 +1353,7 @@ export default function Home() {
                   <a
                     href="https://creativecommons.org/licenses/by-nc/4.0/deed.en"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ color: state.brand }}
                   >
                     Creative Commons (CC BY-NC 4.0)
@@ -1469,6 +1470,7 @@ export default function Home() {
                   <a
                     href="https://creativecommons.org/licenses/by-nc/4.0/deed.en"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ color: state.brand }}
                   >
                     Creative Commons (CC BY-NC 4.0)
@@ -1543,6 +1545,7 @@ export default function Home() {
               <ul className="mt-1.5 flex flex-col mb-2">
                 {["all", ...iconCategories].map((category) => (
                   <li
+                    key={category}
                     style={{
                       color:
                         selectedFilters.includes(category) &&
