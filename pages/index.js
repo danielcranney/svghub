@@ -845,12 +845,10 @@ export default function Home() {
       // Check if the category is already selected
       if (selectedFilters.includes(category)) {
         // Remove the category if already selected
-        setSelectedFilters(
-          selectedFilters.filter((filter) => filter !== category)
-        );
+        setSelectedFilters([category]);
       } else {
         // Add the category if not selected
-        setSelectedFilters(["all", ...selectedFilters, category]);
+        setSelectedFilters([category]);
       }
     }
   };
@@ -1137,7 +1135,7 @@ export default function Home() {
           href="http://www.colorhub.app"
           target="_blank"
           rel="noreferrer"
-          className="relative w-full h-full rounded-lg flex flex-col justify-center p-5 col-start-1 row-start-6 row-span-1 col-span-2 lg:col-start-5 lg:row-start-3 lg:row-span-2 lg:col-span-1 text-lightest gap-y-3 items-start cursor-pointer"
+          className="relative w-full h-full rounded-lg flex flex-col justify-center p-5 row-span-1 col-span-2 text-lightest gap-y-3 items-start cursor-pointer"
           style={{
             background: `linear-gradient(to bottom, ${state.dark}, ${state.darkest}`,
           }}
@@ -1368,26 +1366,62 @@ export default function Home() {
         <section className="sidebar-and-icons flex w-full gap-0 container mx-auto">
           <div className="flex w-full bg-white dark:bg-white/[4%] overflow-hidden rounded-xl">
             <div
-              className="w-1/4 sticky top-6 bottom-6 h-full p-5 flex flex-col shadow-lg shadow-[#000000/5] self-start lg:border-r"
+              className="w-1/4 sticky top-0 bottom-6 h-full flex flex-col shadow-lg shadow-[#000000/5] self-start lg:border-r"
               style={{
                 borderColor: currentTheme == "light" ? state.light : state.dark,
               }}
             >
-              <h3 className="flex font-bold tracking-wide uppercase text-sm mb-3">
-                Categories
-              </h3>
-              <ul className="flex flex-col">
+              <div
+                className="flex items-center h-[4.5rem] w-full border-b"
+                style={{
+                  borderColor:
+                    currentTheme == "light" ? state.light : state.dark,
+                }}
+              >
+                <h3 className="flex font-bold tracking-wide uppercase text-sm px-4">
+                  Categories
+                </h3>
+              </div>
+              <ul className="mt-1.5 flex flex-col">
                 {["all", ...iconCategories].map((category) => (
                   <li
                     style={{
                       color:
-                        currentTheme == "light" ? state.darkest : state.light,
+                        selectedFilters.includes(category) &&
+                        currentTheme == "light"
+                          ? state.darkest
+                          : selectedFilters.includes(category) &&
+                            currentTheme == "dark"
+                          ? state.lightest
+                          : !selectedFilters.includes(category) &&
+                            currentTheme == "light"
+                          ? state.dark
+                          : !selectedFilters.includes(category) &&
+                            currentTheme == "dark"
+                          ? state.light
+                          : state.dark,
                     }}
-                    className={`text-sm opacity-70 hover:opacity-100 py-1.5 cursor-pointer hover:bg-zinc-900/[3%] hover:px-2 rounded-lg transition-all duration-150 ease-in-out ${
-                      selectedFilters.includes(category) ? "bg-zinc-900" : ""
+                    className={`flex items-center gap-x-1.5 text-sm py-2 cursor-pointer transition-all duration-150 ease-in-out ${
+                      selectedFilters.includes(category)
+                        ? "px-4"
+                        : "opacity-70 hover:opacity-100 px-4"
                     }`}
                     onClick={() => handleFilterClick(category)}
                   >
+                    <div
+                      className="w-4 h-4 rounded-full border"
+                      style={{
+                        borderColor: selectedFilters.includes(category)
+                          ? state.brand
+                          : !selectedFilters.includes(category) &&
+                            currentTheme == "light"
+                          ? state.darkest
+                          : state.light,
+                        backgroundColor: selectedFilters.includes(category)
+                          ? state.brand
+                          : "",
+                      }}
+                    ></div>
                     {category === "all"
                       ? "All"
                       : category.charAt(0).toUpperCase() + category.slice(1)}
@@ -1399,7 +1433,7 @@ export default function Home() {
             <article className="w-3/4 flex flex-col">
               {/* ----- CUSTOMISER ----- */}
               <aside
-                className="sticky top-0 h-auto lg:h-[4.75rem] w-[calc(100%)] mx-auto z-40 border-b"
+                className="sticky top-0 items-center flex h-[4.5rem] w-full mx-auto z-40 border-b px-4"
                 style={{
                   borderColor:
                     currentTheme == "light" ? state.light : state.dark,
@@ -1410,7 +1444,7 @@ export default function Home() {
                     background:
                       currentTheme == "light" ? state.lightest : state.darkest,
                   }}
-                  className="flex w-full overflow-visible shadow-lg shadow-[#000000/7]"
+                  className="flex w-full shadow-lg shadow-[#000000/7]"
                 >
                   <article
                     style={{
@@ -1418,7 +1452,7 @@ export default function Home() {
                       borderColor:
                         currentTheme == "light" ? state.light : state.dark,
                     }}
-                    className="box w-full px-5 py-3 flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6 lg:border-b"
+                    className="w-full h-full flex flex-col lg:flex-row gap-4 bg-white dark:bg-white/[4%] items-center justify-center gap-x-6"
                   >
                     <article className="w-full lg:w-1/2 flex flex-row items-center gap-3 h-full justify-start">
                       <p className="flex font-semibold opacity-80 uppercase tracking-wider text-xs">
